@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Working Web App in One Class</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>Build a working web app in one class</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 1</p>
+        <aside class="notes">
+          Fifteen Thursdays, one credit. We build projects with an agent and learn enough about the machinery to direct it and check its work. Tonight I run the tool on my machine and you watch. Nothing to install.
+        </aside>
+      </section>
+
+      <section id="introductions">
+        <h2>Introductions</h2>
+        <div class="content">
+          <div class="paper-card yellow">
+            <p class="large">Which program are you in?</p>
+            <p class="large mt-20">Have you ever programmed by hand?</p>
+            <p class="large mt-20">Have you ever used AI to make something?</p>
+            <p class="large mt-20">Is there something you would like to make?</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Go around the room. The last answer matters later: the personal site, the interactive page, and the final project all use material students bring.
+        </aside>
+      </section>
+
+      <section id="material">
+        <h2>NYC 311</h2>
+        <div class="content">
+          <div class="grid-2 align-center">
+            <div class="paper-card yellow">
+              <p class="card-title">The city's non-emergency service line</p>
+              <p class="card-copy">Noise, parking, heating, and similar complaints. Each report becomes a record, and the city publishes the records on NYC Open Data.</p>
+            </div>
+            <div class="dataset-card">
+              <p class="card-title">Each record holds</p>
+              <p class="card-copy">Complaint type · borough · date created · status · agency · location</p>
+            </div>
+          </div>
+          <p class="mt-28">We will ask for the most recent full week.</p>
+        </div>
+        <p class="source-note">Source: NYC Open Data, "311 Service Requests from 2020 to Present," dataset erm2-nwe9.</p>
+        <aside class="notes">
+          Public, local, no privacy problem. The data comes in live tonight.
+        </aside>
+      </section>
+
+      <section id="prompt">
+        <h2>The prompt</h2>
+        <div class="content">
+          <div class="prompt-card">
+            <p>Build a small web app for New Yorkers to explore the most recent full week of NYC 311 service requests from NYC Open Data. Let people compare complaint types and boroughs. Show where the data came from and which dates it covers. Start it so we can open it in a browser.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Type it live. Before enter, ask what the prompt does not say. Pause at the first permission request and at the first files. Open the folder. When it finishes, open the page and test it: boroughs, complaint types, phone width. Ask the room for one change, type it, run it, and repeat the test that failed.
+        </aside>
+      </section>
+
+      <section id="watch-for">
+        <h2>While it runs</h2>
+        <div class="content">
+          <div class="paper-card cyan">
+            <p class="large">What is it doing right now?</p>
+            <p class="large mt-20">What did it decide that the prompt did not say?</p>
+            <p class="large mt-20">What did it ask permission for?</p>
+          </div>
+          <p class="small muted mt-28">Write down any word on screen you do not recognize.</p>
+        </div>
+        <aside class="notes">
+          Leave this up during the screen share if the slides are visible at all. Go over the unfamiliar words at the end.
+        </aside>
+      </section>
+
+      <section id="next-week">
+        <h2>Next Thursday</h2>
+        <div class="content">
+          <div class="paper-card green">
+            <p class="large">What made tonight's run agentic. We reopen the project and compare what the agent said it did with what it did, and you try the tool on your own machine.</p>
+          </div>
+          <p class="mt-28">Before then, install the ChatGPT app on your own computer.</p>
+        </div>
+        <aside class="notes">
+          Keep the project folder and the conversation as they are. Class 2 depends on them.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>

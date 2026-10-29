@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How an Agent Acts</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>How an agent acts</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 3</p>
+        <aside class="notes">
+          Everyone opens their own conversation from last week. The examples come from those.
+        </aside>
+      </section>
+
+      <section id="context">
+        <h2>What the model sees</h2>
+        <div class="content">
+          <div class="context-funnel">
+            <div class="context-sources">
+              <div class="context-source"><p>Your messages</p></div>
+              <div class="context-source"><p>The conversation so far</p></div>
+              <div class="context-source"><p>The list of tools it can use</p></div>
+              <div class="context-source"><p>Whatever the tools returned</p></div>
+            </div>
+            <div class="funnel-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            <div class="model-box"><i class="fa-solid fa-brain" aria-hidden="true"></i><p>The model</p></div>
+          </div>
+        </div>
+        <aside class="notes">
+          Have someone scroll to the first thing theirs did. Everything it knows about the project arrived through a tool.
+        </aside>
+      </section>
+
+      <section id="compaction">
+        <h2>The conversation does not fit forever</h2>
+        <div class="content">
+          <p class="large">When the conversation gets long, the app replaces the early part with a summary. Detail is lost. That is why a long session gets worse, and why it forgets a decision from an hour ago.</p>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 210" role="img" aria-label="A long conversation shown as a row of blocks. After compaction the early blocks are replaced by one summary block and only the recent blocks remain." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
+              <defs><marker id="a3c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+              <rect x="10" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="67" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="124" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="181" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="238" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="295" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="352" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="409" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="466" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="523" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="580" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="637" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="694" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="751" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="808" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="865" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="922" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="979" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="1036" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="1093" y="40" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/>
+              <text x="10" y="28" font-size="15" fill="currentColor">An hour in: everything you and it have said</text>
+              <rect x="10" y="150" width="180" height="44" fill="#f06449" stroke="currentColor" stroke-width="2"/>
+              <text x="100" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#fffdf7">a summary</text>
+              <rect x="200" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="257" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="314" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="371" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="428" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="485" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/><rect x="542" y="150" width="52" height="44" fill="#fffdf7" stroke="currentColor" stroke-width="2"/>
+              <text x="10" y="138" font-size="15" fill="currentColor">After compaction: the early part replaced by a summary, the rest kept</text>
+              <line x1="580" y1="95" x2="580" y2="138" stroke="currentColor" stroke-width="3" marker-end="url(#a3c)"/>
+            </svg>
+          </figure>
+          <p class="mt-20">Start a new conversation for a new task. Between conversations, it remembers nothing except what is in the files.</p>
+        </div>
+        <aside class="notes">
+          The app calls this compaction and usually shows when it happens. Ask who had a run go strange late in a long session. The last line sets up Class 13, where we write down what every new conversation should know.
+        </aside>
+      </section>
+
+      <section id="how-it-acts">
+        <h2>How it acts</h2>
+        <div class="content">
+          <p class="large">The model never touches the computer. It writes a request. The program carries it out with a tool and sends back what happened. Then the model writes the next step.</p>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 240" role="img" aria-label="The model asks the program for an action. The program runs a tool that acts on your computer. What happened goes back to the model, which writes the next step. The program sometimes stops and asks you first." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
+              <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+              <rect x="10" y="70" width="230" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <text x="125" y="112" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">The model</text>
+              <text x="125" y="137" text-anchor="middle" font-size="15" fill="currentColor">reads, then writes the next step</text>
+              <rect x="320" y="70" width="230" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <text x="435" y="112" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">The program</text>
+              <text x="435" y="137" text-anchor="middle" font-size="15" fill="currentColor">the ChatGPT app</text>
+              <rect x="630" y="70" width="230" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <text x="745" y="112" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">A tool</text>
+              <text x="745" y="137" text-anchor="middle" font-size="15" fill="currentColor">a command, or a file change</text>
+              <rect x="940" y="70" width="210" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <text x="1045" y="112" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">Your computer</text>
+              <text x="1045" y="137" text-anchor="middle" font-size="15" fill="currentColor">files and programs</text>
+              <line x1="240" y1="120" x2="308" y2="120" stroke="currentColor" stroke-width="3" marker-end="url(#a3)"/>
+              <text x="274" y="108" text-anchor="middle" font-size="14" fill="currentColor">asks for</text>
+              <line x1="550" y1="120" x2="618" y2="120" stroke="currentColor" stroke-width="3" marker-end="url(#a3)"/>
+              <text x="584" y="108" text-anchor="middle" font-size="14" fill="currentColor">runs</text>
+              <line x1="860" y1="120" x2="928" y2="120" stroke="currentColor" stroke-width="3" marker-end="url(#a3)"/>
+              <text x="894" y="108" text-anchor="middle" font-size="14" fill="currentColor">acts on</text>
+              <path d="M 1045 170 L 1045 200 L 125 200 L 125 182" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#a3)"/>
+              <text x="585" y="222" text-anchor="middle" font-size="14" fill="currentColor">what happened goes back</text>
+              <rect x="320" y="10" width="230" height="38" fill="none" stroke="#f06449" stroke-width="3"/>
+              <text x="435" y="35" text-anchor="middle" font-size="15" fill="#f06449">sometimes stops and asks you</text>
+              <line x1="435" y1="48" x2="435" y2="68" stroke="#f06449" stroke-width="3"/>
+            </svg>
+          </figure>
+        </div>
+        <aside class="notes">
+          Your run last week was a series of these. Find one in someone's conversation: a command, its output, and what the model did after. Then one where it read an error and changed course. The approval prompt sits in the program, not the model.
+        </aside>
+      </section>
+
+      <section id="tools-limit">
+        <h2>It can only do what it has a tool for</h2>
+        <div class="content">
+          <div class="grid-2 align-center">
+            <div class="paper-card cyan">
+              <p class="card-title">With a file-writing tool</p>
+              <p class="card-copy">The file changes on your computer.</p>
+            </div>
+            <div class="paper-card yellow">
+              <p class="card-title">Without one</p>
+              <p class="card-copy">The model can only describe the change and leave the typing to you.</p>
+            </div>
+          </div>
+          <p class="mt-28">The program decides which tools exist and which ones need your approval. The model does not.</p>
+        </div>
+        <aside class="notes">
+          This is the chatbot difference stated in terms of tools. Show the app's settings for approvals if the interface exposes them.
+        </aside>
+      </section>
+
+      <section id="build">
+        <h2>Make something</h2>
+        <div class="content">
+          <div class="paper-card yellow">
+            <p class="large">Make a website about a project you have worked on.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Most of the hour.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run It Yourself</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>Run it yourself</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 2</p>
+        <aside class="notes">
+          Everyone should have the app installed. Most of the hour is the run and the comparison.
+        </aside>
+      </section>
+
+      <section id="start">
+        <h2>Getting started</h2>
+        <div class="content">
+          <div class="paper-card yellow">
+            <p class="large">Make an empty folder and open it as a project in the app.</p>
+            <p class="large mt-20">If you get stuck or see a question you do not understand, share your screen.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Ten minutes. Anyone still stuck after that watches and tries again after class.
+        </aside>
+      </section>
+
+      <section id="settings">
+        <h2>Three settings</h2>
+        <div class="content">
+          <div class="pause-stack">
+            <div class="pause-row"><p class="verb">MODEL</p><p>Which model does the work. Models differ in speed and capability.</p></div>
+            <div class="pause-row"><p class="verb">THINKING</p><p>How much reasoning effort it uses. Higher settings can take longer.</p></div>
+            <div class="pause-row"><p class="verb">APPROVALS</p><p>When it needs your permission. Some actions can run without asking.</p></div>
+          </div>
+        </div>
+        <aside class="notes">
+          Show where each setting is and which approval setting to use today. Check the default before class; it changes between versions. If students use different models or settings, record that before comparing their results.
+        </aside>
+      </section>
+
+      <section id="instructions">
+        <h2>Tell it how to talk to you</h2>
+        <div class="content">
+          <div class="prompt-card">
+            <p>Before making changes, briefly explain your plan.<br>When you finish, explain what changed and which choices you made.<br>Explain technical terms the first time you use them.<br>Show me the commands you ran and their results.<br>Tell me when something fails and how you plan to handle it.<br>Ask before deleting a file or saving a version in project history.</p>
+          </div>
+          <p class="mt-28">Ask it: "Save these as my instructions for every project, not just this one. Tell me where you put them."</p>
+        </div>
+        <aside class="notes">
+          These instructions apply across projects; the project file comes in Class 13. The global file is ~/.codex/AGENTS.md. Writing outside the project folder may require approval. Have the agent confirm where it saved the instructions and preserve any instructions already there. Start a new conversation to check that they are loaded. Written instructions guide the agent's behavior; they do not change its permission settings. Add a line when a recurring problem gives you a reason to. Sources in notes/agents-md-research-2026-09-06.md.
+        </aside>
+      </section>
+
+      <section id="prompt">
+        <h2>The same request on each computer</h2>
+        <div class="content">
+          <div class="prompt-card">
+            <p>Build a small web app for New Yorkers to explore the most recent full week of NYC 311 service requests from NYC Open Data. Let people compare complaint types and boroughs. Show where the data came from and which dates it covers. Start it so we can open it in a browser.</p>
+          </div>
+          <p class="mt-28">Use last week's prompt exactly. The most recent full week has changed.</p>
+        </div>
+        <aside class="notes">
+          Use the same prompt so the results can be compared. Check the dates before comparing totals with last week's app. Students may also interpret the start of a week differently; that is one of the choices to discuss.
+        </aside>
+      </section>
+
+      <section id="watch-for">
+        <h2>While it runs</h2>
+        <div class="content">
+          <div class="paper-card cyan">
+            <p class="large">What is it doing right now?</p>
+            <p class="large mt-20">What did it decide that the prompt did not say?</p>
+            <p class="large mt-20">What did it ask permission for?</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Leave this up. When someone gets a permission prompt, read it aloud.
+        </aside>
+      </section>
+
+      <section id="what-it-did">
+        <h2>Find these in your run</h2>
+        <div class="content">
+          <div class="grid-4">
+            <div class="tool-card"><h3>The folder</h3><p>Where did it inspect your folder? What did it find?</p></div>
+            <div class="tool-card"><h3>New files</h3><p>Which files did it create? Find them in your folder.</p></div>
+            <div class="tool-card"><h3>Commands</h3><p>Find a command it ran and the result that came back.</p></div>
+            <div class="tool-card"><h3>A server</h3><p>Did it start a server? Which address did you open?</p></div>
+          </div>
+          <p class="mt-28">Did it ask permission? What was it about to do?</p>
+        </div>
+        <aside class="notes">
+          Look for these actions in someone's conversation. Runs may take different paths. Ask who saw a permission request and what it covered. The agent can use tools to act on your computer; its settings determine which actions require approval.
+        </aside>
+      </section>
+
+      <section id="trust">
+        <h2>Where the numbers come from</h2>
+        <div class="content">
+          <p class="large">The agent writes a program that counts the city's records. We can follow a number back to those records and check the calculation.</p>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 250" role="img" aria-label="The program the agent wrote reads the city's records, selects last week's rows, groups them by borough, and counts them. The page displays those counts." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <!-- records -->
+              <rect x="10" y="70" width="220" height="130" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <line x1="40" y1="105" x2="200" y2="105" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+              <line x1="40" y1="130" x2="200" y2="130" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+              <line x1="40" y1="155" x2="200" y2="155" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+              <line x1="40" y1="180" x2="140" y2="180" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+              <text x="120" y="45" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">The city's records</text>
+              <!-- arrow reads -->
+              <line x1="240" y1="135" x2="322" y2="135" stroke="currentColor" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="281" y="122" text-anchor="middle" font-size="15" fill="currentColor">reads</text>
+              <!-- program -->
+              <rect x="335" y="70" width="520" height="130" fill="none" stroke="#f06449" stroke-width="4"/>
+              <text x="595" y="45" text-anchor="middle" font-size="19" font-weight="600" fill="#f06449">The program the agent wrote</text>
+              <rect x="355" y="100" width="150" height="70" fill="#fffdf7" stroke="currentColor" stroke-width="2"/>
+              <text x="430" y="130" text-anchor="middle" font-size="16" fill="currentColor">keep last</text>
+              <text x="430" y="152" text-anchor="middle" font-size="16" fill="currentColor">week's rows</text>
+              <line x1="505" y1="135" x2="518" y2="135" stroke="currentColor" stroke-width="2" marker-end="url(#arrow)"/>
+              <rect x="520" y="100" width="150" height="70" fill="#fffdf7" stroke="currentColor" stroke-width="2"/>
+              <text x="595" y="130" text-anchor="middle" font-size="16" fill="currentColor">group them</text>
+              <text x="595" y="152" text-anchor="middle" font-size="16" fill="currentColor">by borough</text>
+              <line x1="670" y1="135" x2="683" y2="135" stroke="currentColor" stroke-width="2" marker-end="url(#arrow)"/>
+              <rect x="685" y="100" width="150" height="70" fill="#fffdf7" stroke="currentColor" stroke-width="2"/>
+              <text x="760" y="141" text-anchor="middle" font-size="16" fill="currentColor">count each</text>
+              <!-- arrow draws -->
+              <line x1="865" y1="135" x2="947" y2="135" stroke="currentColor" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="906" y="122" text-anchor="middle" font-size="15" fill="currentColor">draws</text>
+              <!-- page -->
+              <rect x="960" y="70" width="190" height="130" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <rect x="985" y="120" width="22" height="60" fill="#0066b3"/>
+              <rect x="1020" y="95" width="22" height="85" fill="#0066b3"/>
+              <rect x="1055" y="140" width="22" height="40" fill="#0066b3"/>
+              <rect x="1090" y="110" width="22" height="70" fill="#0066b3"/>
+              <text x="1055" y="45" text-anchor="middle" font-size="19" font-weight="600" fill="currentColor">The page</text>
+              <text x="1055" y="232" text-anchor="middle" font-size="15" fill="currentColor">shows the counts</text>
+            </svg>
+          </figure>
+        </div>
+        <aside class="notes">
+          Show where the run fetched the city's records. Students may expect the model to invent numbers as it writes an answer. Here, the agent writes code, and that code calculates the counts from records we can inspect. Checking one calculation helps students understand why they can trust that result. If it differs, investigate the dates, filters, and counting steps. This is ordinary checking of a data program. Sources in notes/trust-and-verification-research-2026-09-06.md.
+        </aside>
+      </section>
+
+      <section id="try-it">
+        <h2>Check the page against the data</h2>
+        <div class="content">
+          <div class="paper-card green">
+            <p class="large">Pick a borough. Does the count change?</p>
+            <p class="large mt-20">Spot-check five records. Are their dates within the week you asked for?</p>
+            <p class="large mt-20">Pick one count. Check it against the data file or the city's site, using the same dates and filters.</p>
+            <p class="large mt-20">Narrow the browser window. Can you still read and use the page?</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Do the third check even if you skip the rest. Have the agent count the same borough and complaint type from the raw file, without using the app's counting code. If the counts differ, compare the dates and filters before diagnosing a bug. Matching counts check the calculation against the file; they do not prove the download is complete. Five records are a spot-check, not a check of every date.
+        </aside>
+      </section>
+
+      <section id="ask-it">
+        <h2>Ask it to explain its work</h2>
+        <div class="content">
+          <div class="paper-card cyan">
+            <p class="large">What did you build, and which choices did you make?</p>
+            <p class="large mt-20">Which commands did you run, and what came back?</p>
+            <p class="large mt-20">If you read code, ask it to show and explain the changes.</p>
+          </div>
+          <p class="mt-28">For a second opinion, start a new conversation. Ask it to find problems and show evidence for each one.</p>
+        </div>
+        <aside class="notes">
+          A plain-language report can help students follow the work, but it still needs checking against the files and the running page. A fresh conversation may find problems the first run missed. Ask it to demonstrate each finding. If students ask for automated tests, have them read what each test checks; passing tests do not establish that every user action works.
+        </aside>
+      </section>
+
+      <section id="compare">
+        <h2>Compare the choices and results</h2>
+        <div class="content">
+          <div class="paper-card orange">
+            <p class="large">Share your screen and show one choice your agent made.</p>
+            <p class="large mt-20">How did it differ from another run? Show one thing you checked and what happened.</p>
+          </div>
+          <p class="mt-28">Ask for one change and test it. Keep the folder and conversation for next week.</p>
+        </div>
+        <aside class="notes">
+          Six versions of the same request. Keep the folder and the conversation; Class 3 uses them.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>

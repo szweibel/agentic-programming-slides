@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working from Sources</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>Working from sources</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 7</p>
+      </section>
+
+      <section id="why-question">
+        <h2>Searching dissertations for &quot;participatory&quot;</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Which GC psychology dissertations did participatory research?</li>
+            <li>All three of these use the word in the abstract</li>
+            <li>The word alone doesn't tell you whether community members helped</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 365" role="img" aria-label="A search for participatory finds three dissertations whose abstracts use the word. Whether each one did participatory research is not yet known." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="250" height="70" fill="#fffdf7" stroke="#526274" stroke-width="2"/><text x="145" y="72" text-anchor="middle" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">search: "participatory"</text><line x1="275" y1="65" x2="335" y2="65" stroke="currentColor" stroke-width="2" marker-end="url(#m7_10)"/><rect x="345" y="20" width="560" height="92" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="365" y="48" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">gc_etds-1976</text><text x="490" y="48" text-anchor="start" font-size="18" fill="#0b1f33" font-weight="600">Housing crisis in Hungary</text><text x="365" y="80" text-anchor="start" font-size="16" fill="#0b1f33">abstract: "a participatory action research project"</text><line x1="910" y1="66" x2="968" y2="66" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_10)"/><rect x="978" y="44" width="150" height="44" fill="#fffdf7" stroke="#526274" stroke-width="2" stroke-dasharray="6 4"/><text x="1053" y="73" text-anchor="middle" font-size="19" fill="#526274" font-weight="600">?</text><line x1="275" y1="65" x2="335" y2="175" stroke="currentColor" stroke-width="2" marker-end="url(#m7_10)"/><rect x="345" y="130" width="560" height="92" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="365" y="158" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">gc_etds-6750</text><text x="490" y="158" text-anchor="start" font-size="18" fill="#0b1f33" font-weight="600">School climate, safety, and space</text><text x="365" y="190" text-anchor="start" font-size="16" fill="#0b1f33">abstract: "through participatory processes"</text><line x1="910" y1="176" x2="968" y2="176" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_10)"/><rect x="978" y="154" width="150" height="44" fill="#fffdf7" stroke="#526274" stroke-width="2" stroke-dasharray="6 4"/><text x="1053" y="183" text-anchor="middle" font-size="19" fill="#526274" font-weight="600">?</text><line x1="275" y1="65" x2="335" y2="285" stroke="currentColor" stroke-width="2" marker-end="url(#m7_10)"/><rect x="345" y="240" width="560" height="92" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="365" y="268" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">gc_etds-957</text><text x="490" y="268" text-anchor="start" font-size="18" fill="#0b1f33" font-weight="600">Nepantla and Ubuntu ethics</text><text x="365" y="300" text-anchor="start" font-size="16" fill="#0b1f33">abstract: "Participatory Action Research (PAR)"</text><line x1="910" y1="286" x2="968" y2="286" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_10)"/><rect x="978" y="264" width="150" height="44" fill="#fffdf7" stroke="#526274" stroke-width="2" stroke-dasharray="6 4"/><text x="1053" y="293" text-anchor="middle" font-size="19" fill="#526274" font-weight="600">?</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="rubric">
+        <h2>The rubric</h2>
+        <div class="content">
+          <div class="grid-3 mt-28">
+          <div class="paper-card cyan"><p class="card-title">Include</p><p class="card-copy">Community members helped design, conduct, analyze, or share the research.</p></div>
+          <div class="paper-card yellow"><p class="card-title">Exclude</p><p class="card-copy">They took part only as participants, or "participatory" describes the topic.</p></div>
+          <div class="paper-card orange"><p class="card-title">Review</p><p class="card-copy">The author claims participatory principles without saying what community members did.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="request">
+        <h2>The prompt for the run</h2>
+        <div class="content">
+          <div class="prompt-card mt-12">
+            <p>Apply the rubric to each dissertation, one at a time. For each one, extract the text, find where the author describes how the research was done, and read that part before deciding. Do not use keyword matching.</p>
+            <p class="mt-20">Save the decisions in a new file with one row per dissertation: the id, the decision, a quoted passage as evidence with its PDF page number, a one-sentence reason, and the rubric version. Do not change dissertations.csv.</p>
+          </div>
+          <ul class="cues mt-28">
+            <li>Then it built a page for reviewing the decisions</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="per-agent">
+        <h2>One agent for each document</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>In a long session the agent loses track of earlier detail, as in Class 3</li>
+            <li>Codex can give each document its own agent</li>
+            <li>Each result is saved as soon as it is done</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 345" role="img" aria-label="A stack of PDFs that never change. Each goes to its own agent. Each agent writes one row to the decisions file as soon as it is done." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="30" y="70" width="130" height="165" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><rect x="40" y="80" width="130" height="165" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><rect x="50" y="90" width="130" height="165" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><rect x="60" y="100" width="130" height="165" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><rect x="70" y="110" width="130" height="165" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="120" y="290" text-anchor="middle" font-size="19" fill="#0b1f33" font-weight="600">the PDFs</text><line x1="200" y1="160" x2="368" y2="58" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><rect x="380" y="30" width="200" height="56" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="480" y="65" text-anchor="middle" font-size="19" fill="#fffdf7" font-weight="600">agent 1</text><line x1="585" y1="58" x2="718" y2="58" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><line x1="200" y1="160" x2="368" y2="138" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><rect x="380" y="110" width="200" height="56" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="480" y="145" text-anchor="middle" font-size="19" fill="#fffdf7" font-weight="600">agent 2</text><line x1="585" y1="138" x2="718" y2="138" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><line x1="200" y1="160" x2="368" y2="218" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><rect x="380" y="190" width="200" height="56" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="480" y="225" text-anchor="middle" font-size="19" fill="#fffdf7" font-weight="600">agent 3</text><line x1="585" y1="218" x2="718" y2="218" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><line x1="200" y1="160" x2="368" y2="298" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><rect x="380" y="270" width="200" height="56" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="480" y="305" text-anchor="middle" font-size="19" fill="#fffdf7" font-weight="600">...</text><line x1="585" y1="298" x2="718" y2="298" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_5)"/><rect x="730" y="20" width="410" height="320" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="935" y="50" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">decisions file</text><rect x="755" y="66" width="360" height="30" fill="#dfe5e8"/><text x="770" y="87" text-anchor="start" font-size="16" fill="#526274">row 1: saved when done</text><rect x="755" y="146" width="360" height="30" fill="#dfe5e8"/><text x="770" y="167" text-anchor="start" font-size="16" fill="#526274">row 2: saved when done</text><rect x="755" y="226" width="360" height="30" fill="#dfe5e8"/><text x="770" y="247" text-anchor="start" font-size="16" fill="#526274">row 3: saved when done</text><rect x="755" y="306" width="360" height="30" fill="#fffdf7"/></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="decisions-file">
+        <h2>The decisions file</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>One row per dissertation</li>
+            <li>Each row has the rubric version, so you can compare decisions after you change the rubric</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 260" role="img" aria-label="A decisions table with columns id, decision, evidence, page, reason, and rubric version, and three example rows: Include, Exclude, and Review." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="20" width="150" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="30" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">id</text><rect x="170" y="20" width="120" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="180" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">decision</text><rect x="290" y="20" width="400" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="300" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">evidence</text><rect x="690" y="20" width="70" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="700" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">page</text><rect x="760" y="20" width="300" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="770" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">reason</text><rect x="1060" y="20" width="80" height="44" fill="#0b1f33" stroke="#0b1f33" stroke-width="0"/><text x="1070" y="49" text-anchor="start" font-size="17" fill="#fffdf7" font-weight="600" font-family="IBM Plex Mono, monospace">rubric</text><rect x="20" y="64" width="150" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="30" y="90" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">gc_etds-1976</text><rect x="170" y="64" width="120" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="180" y="90" text-anchor="start" font-size="15" fill="#2d7d68" font-weight="600">Include</text><rect x="290" y="64" width="400" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="300" y="90" text-anchor="start" font-size="15" fill="#0b1f33">"coordinated by four AVM activists..."</text><rect x="690" y="64" width="70" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="700" y="90" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">222</text><rect x="760" y="64" width="300" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="770" y="90" text-anchor="start" font-size="15" fill="#0b1f33">homeless researchers set the</text><text x="770" y="112" text-anchor="start" font-size="15" fill="#0b1f33">question</text><rect x="1060" y="64" width="80" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="1070" y="90" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">v1</text><rect x="20" y="124" width="150" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="30" y="150" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">gc_etds-6750</text><rect x="170" y="124" width="120" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="180" y="150" text-anchor="start" font-size="15" fill="#f06449" font-weight="600">Exclude</text><rect x="290" y="124" width="400" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="300" y="150" text-anchor="start" font-size="15" fill="#0b1f33">"I interviewed school teachers,</text><text x="300" y="172" text-anchor="start" font-size="15" fill="#0b1f33">counselors..."</text><rect x="690" y="124" width="70" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="700" y="150" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">91</text><rect x="760" y="124" width="300" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="770" y="150" text-anchor="start" font-size="15" fill="#0b1f33">interviewees only</text><rect x="1060" y="124" width="80" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="1070" y="150" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">v1</text><rect x="20" y="184" width="150" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="30" y="210" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">gc_etds-957</text><rect x="170" y="184" width="120" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="180" y="210" text-anchor="start" font-size="15" fill="#b8860b" font-weight="600">Review</text><rect x="290" y="184" width="400" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="300" y="210" text-anchor="start" font-size="15" fill="#0b1f33">"my colleagues, co-researchers and</text><text x="300" y="232" text-anchor="start" font-size="15" fill="#0b1f33">teachers"</text><rect x="690" y="184" width="70" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="700" y="210" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">62</text><rect x="760" y="184" width="300" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="770" y="210" text-anchor="start" font-size="15" fill="#0b1f33">claims co-research, procedures</text><text x="770" y="232" text-anchor="start" font-size="15" fill="#0b1f33">unclear</text><rect x="1060" y="184" width="80" height="60" fill="#fffdf7" stroke="#0b1f33" stroke-width="1.5"/><text x="1070" y="210" text-anchor="start" font-size="15" fill="#0b1f33" font-family="IBM Plex Mono, monospace">v1</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="review-page">
+        <h2>The review page from the run</h2>
+        <div class="content">
+          <div class="side">
+            <ul class="cues">
+            <li>Each decision beside its title</li>
+            <li>The reason and the quoted passage</li>
+            <li>Filters for Include, Review, and Exclude</li>
+          </ul>
+            <img src="img/run-review.png" alt="A review page titled Participatory research decisions, with filters for Include, Review and Exclude, showing the school climate dissertation marked Exclude with its reason and quoted passage." style="max-height: 480px; width: auto; border: 2px solid #0b1f33; justify-self: center;">
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence">
+        <h2>One decision with its quote and page</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The agent quotes the passage it based the decision on</li>
+            <li>It gives the PDF page</li>
+            <li>You can open the page and check</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 360" role="img" aria-label="A decision for gc_etds-1976: Include, with a quoted passage and page 222. An arrow points to page 222 of the PDF, where the passage is highlighted." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="480" height="300" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="40" y="65" text-anchor="start" font-size="18" fill="#526274" font-family="IBM Plex Mono, monospace">gc_etds-1976</text><rect x="40" y="85" width="110" height="34" fill="#2d7d68" stroke="#2d7d68" stroke-width="0"/><text x="95" y="108" text-anchor="middle" font-size="18" fill="#fffdf7" font-weight="600">Include</text><text x="40" y="160" text-anchor="start" font-size="17" fill="#0b1f33" font-style="normal">"Justice on the Streets was coordinated</text><text x="40" y="188" text-anchor="start" font-size="17" fill="#0b1f33" font-style="normal">by four AVM activists... and two long-time</text><text x="40" y="216" text-anchor="start" font-size="17" fill="#0b1f33" font-style="normal">homeless members."</text><text x="40" y="290" text-anchor="start" font-size="19" fill="#f06449" font-weight="600">page 222</text><line x1="505" y1="280" x2="660" y2="200" stroke="currentColor" stroke-width="3" marker-end="url(#m7_6)"/><rect x="670" y="20" width="300" height="330" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="960" y="340" text-anchor="end" font-size="14" fill="#526274">p. 222</text><rect x="695" y="50" width="250" height="10" fill="#b8c3ca"/><rect x="695" y="80" width="220" height="10" fill="#b8c3ca"/><rect x="695" y="110" width="190" height="10" fill="#b8c3ca"/><rect x="695" y="140" width="250" height="10" fill="#b8c3ca"/><rect x="690" y="164" width="260" height="22" fill="#fde3a7"/><rect x="695" y="170" width="220" height="10" fill="#b8c3ca"/><rect x="690" y="194" width="260" height="22" fill="#fde3a7"/><rect x="695" y="200" width="190" height="10" fill="#b8c3ca"/><rect x="695" y="230" width="250" height="10" fill="#b8c3ca"/><rect x="695" y="260" width="220" height="10" fill="#b8c3ca"/><rect x="695" y="290" width="190" height="10" fill="#b8c3ca"/></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="hard-case">
+        <h2>A dissertation marked Review</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The author calls the board co-researchers</li>
+            <li>The procedures describe a focus group and observation</li>
+            <li>Under the rubric it goes to Review, for a person to decide</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 335" role="img" aria-label="The decision for gc_etds-957 is Review. The author calls the board co-researchers on page 62, but the procedures show board members only in a focus group, being observed, and sharing documents." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="20" width="1120" height="300" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="45" y="60" text-anchor="start" font-size="18" fill="#526274">gc_etds-957 · Nepantla and Ubuntu Ethics Para Nosotros</text><rect x="45" y="80" width="120" height="36" fill="#b8860b" stroke="#0b1f33" stroke-width="0"/><text x="105" y="105" text-anchor="middle" font-size="18" fill="#fffdf7" font-weight="600">Review</text><text x="45" y="160" text-anchor="start" font-size="19" fill="#0b1f33">"I have never thought of the BxCRRB or its coordinators as my unknowing</text><text x="45" y="188" text-anchor="start" font-size="19" fill="#0b1f33">participants but as my colleagues, co-researchers and teachers."   page 62</text><text x="45" y="240" text-anchor="start" font-size="18" fill="#526274">The procedures (pages 49 to 53) show board members in a focus group, being observed,</text><text x="45" y="266" text-anchor="start" font-size="18" fill="#526274">and sharing documents, with no described role in designing or conducting the study.</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="pilot">
+        <h2>Revising the rubric</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>A case like this can mean a rule needs changing</li>
+            <li>Call the changed rubric version 2</li>
+            <li>Try it on a few dissertations first</li>
+            <li>Keep both versions</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 270" role="img" aria-label="Rubric version 1 is kept. One rule is changed to make version 2, which is tried on a few dissertations before the rest." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="60" width="190" height="80" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="115" y="107" text-anchor="middle" font-size="19" fill="#0b1f33" font-weight="600">rubric v1</text><line x1="215" y1="100" x2="242" y2="100" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_8)"/><rect x="250" y="60" width="190" height="80" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="345" y="107" text-anchor="middle" font-size="19" fill="#0b1f33">change one rule</text><line x1="445" y1="100" x2="472" y2="100" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_8)"/><rect x="480" y="60" width="190" height="80" fill="#fffdf7" stroke="#f6c445" stroke-width="3"/><text x="575" y="107" text-anchor="middle" font-size="19" fill="#0b1f33" font-weight="600">rubric v2</text><line x1="675" y1="100" x2="702" y2="100" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_8)"/><rect x="710" y="60" width="190" height="80" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="805" y="107" text-anchor="middle" font-size="19" fill="#0b1f33">a few dissertations</text><line x1="905" y1="100" x2="932" y2="100" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7_8)"/><rect x="940" y="60" width="190" height="80" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="1035" y="107" text-anchor="middle" font-size="19" fill="#0b1f33">the rest</text><rect x="20" y="190" width="190" height="60" fill="#fffdf7" stroke="#35c0c5" stroke-width="2" stroke-dasharray="6 4"/><text x="115" y="226" text-anchor="middle" font-size="18" fill="#526274">v1 kept</text><line x1="115" y1="145" x2="115" y2="182" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#m7_8)"/></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="checking">
+        <h2>Checking the decisions</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Open the PDF at the quoted page</li>
+            <li>Read every row marked Review</li>
+            <li>Check one Include and one Exclude yourself</li>
+            <li>Run it twice and compare</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 290" role="img" aria-label="Two runs of the same rubric. For one dissertation, run 1 says Include and run 2 says Review. That row is marked for a person to read." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7_9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><text x="250" y="40" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">run 1</text><text x="560" y="40" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">run 2</text><text x="40" y="90" text-anchor="start" font-size="17" fill="#526274">dissertation 1</text><rect x="180" y="60" width="140" height="42" fill="#fffdf7" stroke="#2d7d68" stroke-width="2.5"/><text x="250" y="88" text-anchor="middle" font-size="17" fill="#2d7d68" font-weight="600">Include</text><rect x="490" y="60" width="140" height="42" fill="#fffdf7" stroke="#2d7d68" stroke-width="2.5"/><text x="560" y="88" text-anchor="middle" font-size="17" fill="#2d7d68" font-weight="600">Include</text><text x="40" y="145" text-anchor="start" font-size="17" fill="#526274">dissertation 2</text><rect x="180" y="115" width="140" height="42" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="250" y="143" text-anchor="middle" font-size="17" fill="#f06449" font-weight="600">Exclude</text><rect x="490" y="115" width="140" height="42" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="560" y="143" text-anchor="middle" font-size="17" fill="#f06449" font-weight="600">Exclude</text><text x="40" y="200" text-anchor="start" font-size="17" fill="#526274">dissertation 3</text><rect x="180" y="170" width="140" height="42" fill="#fffdf7" stroke="#2d7d68" stroke-width="2.5"/><text x="250" y="198" text-anchor="middle" font-size="17" fill="#2d7d68" font-weight="600">Include</text><rect x="490" y="170" width="140" height="42" fill="#fffdf7" stroke="#b8860b" stroke-width="2.5"/><text x="560" y="198" text-anchor="middle" font-size="17" fill="#b8860b" font-weight="600">Review</text><rect x="160" y="164" width="500" height="54" fill="none" stroke="#f06449" stroke-width="3" stroke-dasharray="7 5"/><text x="680" y="200" text-anchor="start" font-size="18" fill="#f06449" font-weight="600">the two runs disagree, so read it yourself</text><text x="40" y="255" text-anchor="start" font-size="17" fill="#526274">dissertation 4</text><rect x="180" y="225" width="140" height="42" fill="#fffdf7" stroke="#2d7d68" stroke-width="2.5"/><text x="250" y="253" text-anchor="middle" font-size="17" fill="#2d7d68" font-weight="600">Include</text><rect x="490" y="225" width="140" height="42" fill="#fffdf7" stroke="#2d7d68" stroke-width="2.5"/><text x="560" y="253" text-anchor="middle" font-size="17" fill="#2d7d68" font-weight="600">Include</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="rights">
+        <h2>Terms of use for sources</h2>
+        <div class="content">
+          <div class="paper-card yellow">
+          <ul class="cues large-cues">
+            <li>Some archives forbid uploading, even to services that don't train</li>
+            <li>You can ask for permission</li>
+            <li>Take care with what you publish about people in the records</li>
+            <li>Some database licences do not allow bulk processing</li>
+            <li>Check the terms for each source</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="methods-general">
+        <h2>Research methods with an agent</h2>
+        <div class="content">
+          <div class="grid-3 mt-28"><div class="paper-card cyan"><p class="card-title">Coding interviews</p><p class="card-copy">Apply your codebook to each transcript, with quotes.</p></div><div class="paper-card yellow"><p class="card-title">A dataset from sources</p><p class="card-copy">Pull names, dates, and places from letters into a table.</p></div><div class="paper-card orange"><p class="card-title">A literature review</p><p class="card-copy">Search, screen, and summarize studies against your criteria.</p></div><div class="paper-card green"><p class="card-title">Comparing versions</p><p class="card-copy">Mark every difference between two editions of a text.</p></div><div class="paper-card cyan"><p class="card-title">Mapping</p><p class="card-copy">Place each location in a set of letters on a map.</p></div><div class="paper-card yellow"><p class="card-title">Counting terms</p><p class="card-copy">Find each use of a term and count it by decade.</p></div></div>
+        </div>
+      </section>
+
+      <section id="directing">
+        <h2>Directing an agent on a research task</h2>
+        <div class="content">
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 250" role="img" aria-label="You describe the goal and the output. The agent researches the sources and similar projects and drafts a plan. You review the plan. The agent tries a few. You check. The agent runs the rest. If the check fails, you revise the description and try again." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m7dir" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="6" y="40" width="140" height="96" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="76.0" y="77" text-anchor="middle" font-size="17" fill="#0b1f33">describe the goal</text><text x="76.0" y="100" text-anchor="middle" font-size="17" fill="#0b1f33">and the output</text><text x="76.0" y="165" text-anchor="middle" font-size="18" fill="#1d8a8f" font-weight="600">you</text><line x1="149" y1="88" x2="169" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="172" y="40" width="140" height="96" fill="#0b1f33" stroke="#0b1f33" stroke-width="3"/><text x="242.0" y="66" text-anchor="middle" font-size="17" fill="#fffdf7">research sources</text><text x="242.0" y="89" text-anchor="middle" font-size="17" fill="#fffdf7">and similar</text><text x="242.0" y="112" text-anchor="middle" font-size="17" fill="#fffdf7">projects</text><text x="242.0" y="165" text-anchor="middle" font-size="18" fill="#0b1f33" font-weight="600">agent</text><line x1="315" y1="88" x2="335" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="338" y="40" width="140" height="96" fill="#0b1f33" stroke="#0b1f33" stroke-width="3"/><text x="408.0" y="88" text-anchor="middle" font-size="17" fill="#fffdf7">draft a plan</text><text x="408.0" y="165" text-anchor="middle" font-size="18" fill="#0b1f33" font-weight="600">agent</text><line x1="481" y1="88" x2="501" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="504" y="40" width="140" height="96" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="574.0" y="88" text-anchor="middle" font-size="17" fill="#0b1f33">review the plan</text><text x="574.0" y="165" text-anchor="middle" font-size="18" fill="#1d8a8f" font-weight="600">you</text><line x1="647" y1="88" x2="667" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="670" y="40" width="140" height="96" fill="#0b1f33" stroke="#0b1f33" stroke-width="3"/><text x="740.0" y="88" text-anchor="middle" font-size="17" fill="#fffdf7">try a few</text><text x="740.0" y="165" text-anchor="middle" font-size="18" fill="#0b1f33" font-weight="600">agent</text><line x1="813" y1="88" x2="833" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="836" y="40" width="140" height="96" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="906.0" y="88" text-anchor="middle" font-size="17" fill="#0b1f33">check</text><text x="906.0" y="165" text-anchor="middle" font-size="18" fill="#1d8a8f" font-weight="600">you</text><line x1="979" y1="88" x2="999" y2="88" stroke="currentColor" stroke-width="2.5" marker-end="url(#m7dir)"/><rect x="1002" y="40" width="140" height="96" fill="#0b1f33" stroke="#0b1f33" stroke-width="3"/><text x="1072.0" y="88" text-anchor="middle" font-size="17" fill="#fffdf7">run the rest</text><text x="1072.0" y="165" text-anchor="middle" font-size="18" fill="#0b1f33" font-weight="600">agent</text><path d="M 906.0 178 L 906.0 210 L 76.0 210 L 76.0 182" fill="none" stroke="#f06449" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#m7dir)"/><text x="491.0" y="238" text-anchor="middle" font-size="17" fill="#f06449">if the check fails, revise the description and try again</text></svg>
+          </figure>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>

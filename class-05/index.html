@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From the Folder to the Browser</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>From the folder to the browser</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 5</p>
+      </section>
+
+      <section id="markup">
+        <h2>Markup in an HTML file</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>An HTML file is text with a label around each part</li>
+            <li>Heading, paragraph, quotation, link</li>
+            <li>How each kind looks is in the stylesheet</li>
+            <li>Screen readers, search engines, and the agent read the labels</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 360" role="img" aria-label="On the left, an HTML file where labels mark a heading, a paragraph, a quotation, and a link. On the right, the browser shows each part in its own style." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="20" width="520" height="300" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="40" y="58" text-anchor="start" font-size="22" fill="#0b1f33" font-weight="600">in the file</text><text x="40" y="110" font-size="18" font-family="IBM Plex Mono, monospace"><tspan fill="#f06449">&lt;h1&gt;</tspan><tspan fill="#0b1f33">Jane Doe</tspan><tspan fill="#f06449">&lt;/h1&gt;</tspan></text><text x="40" y="165" font-size="18" font-family="IBM Plex Mono, monospace"><tspan fill="#f06449">&lt;p&gt;</tspan><tspan fill="#0b1f33">I study housing records.</tspan><tspan fill="#f06449">&lt;/p&gt;</tspan></text><text x="40" y="220" font-size="18" font-family="IBM Plex Mono, monospace"><tspan fill="#f06449">&lt;blockquote&gt;</tspan><tspan fill="#0b1f33">Rent was due...</tspan><tspan fill="#f06449">&lt;/blockquote&gt;</tspan></text><text x="40" y="275" font-size="18" font-family="IBM Plex Mono, monospace"><tspan fill="#f06449">&lt;a href="cv.pdf"&gt;</tspan><tspan fill="#0b1f33">My CV</tspan><tspan fill="#f06449">&lt;/a&gt;</tspan></text><line x1="550" y1="170" x2="628" y2="170" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_1)"/><rect x="640" y="20" width="500" height="300" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="640" y1="56" x2="1140" y2="56" stroke="#0b1f33" stroke-width="2"/><circle cx="660" cy="38" r="6" fill="#f06449"/><circle cx="680" cy="38" r="6" fill="#f6c445"/><circle cx="700" cy="38" r="6" fill="#35c0c5"/><text x="660" y="105" text-anchor="start" font-size="36" fill="#0b1f33" font-weight="700">Jane Doe</text><text x="660" y="145" text-anchor="start" font-size="20" fill="#0b1f33">I study housing records.</text><line x1="668" y1="172" x2="668" y2="200" stroke="#b8c3ca" stroke-width="4"/><text x="682" y="193" text-anchor="start" font-size="20" fill="#526274" font-style="italic">Rent was due...</text><text x="660" y="240" text-anchor="start" font-size="20" fill="#0066b3">My CV</text><line x1="660" y1="245" x2="722" y2="245" stroke="#0066b3" stroke-width="2"/><text x="280" y="345" text-anchor="middle" font-size="20" fill="#f06449">labels say what each part is</text><text x="890" y="345" text-anchor="middle" font-size="20" fill="#526274">the browser decides how each kind looks</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="dom">
+        <h2>The file and the live page</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The browser builds a live copy of the page in memory, called the DOM</li>
+            <li>Scripts change the live copy</li>
+            <li>The file stays the same, so a reload clears a filter</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 395" role="img" aria-label="The browser reads index.html from the disk and builds a tree of the page in memory, called the DOM. A script changes part of the tree. A reload rebuilds the tree from the file." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="60" width="240" height="220" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="140" y="100" text-anchor="middle" font-size="21" fill="#0b1f33" font-weight="600" font-family="IBM Plex Mono, monospace">index.html</text><text x="140" y="128" text-anchor="middle" font-size="18" fill="#526274">on the disk</text><rect x="50" y="150" width="180" height="10" fill="#dfe5e8"/><rect x="50" y="172" width="130" height="10" fill="#dfe5e8"/><rect x="50" y="194" width="180" height="10" fill="#dfe5e8"/><rect x="50" y="216" width="130" height="10" fill="#dfe5e8"/><rect x="50" y="238" width="180" height="10" fill="#dfe5e8"/><line x1="265" y1="170" x2="345" y2="170" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_2)"/><text x="305" y="155" text-anchor="middle" font-size="18" fill="#526274">read</text><rect x="355" y="20" width="470" height="320" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="590" y="55" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">the live page in memory (the DOM)</text><line x1="590" y1="111" x2="470" y2="152" stroke="#0b1f33" stroke-width="2"/><line x1="590" y1="111" x2="710" y2="152" stroke="#0b1f33" stroke-width="2"/><line x1="470" y1="186" x2="470" y2="227" stroke="#0b1f33" stroke-width="2"/><line x1="710" y1="186" x2="620" y2="227" stroke="#0b1f33" stroke-width="2"/><line x1="710" y1="186" x2="750" y2="227" stroke="#0b1f33" stroke-width="2"/><rect x="535" y="77" width="110" height="36" rx="6" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="590" y="102" text-anchor="middle" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">page</text><rect x="415" y="152" width="110" height="36" rx="6" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="470" y="177" text-anchor="middle" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">header</text><rect x="655" y="152" width="110" height="36" rx="6" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="710" y="177" text-anchor="middle" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">main</text><rect x="415" y="227" width="110" height="36" rx="6" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="470" y="252" text-anchor="middle" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">h1</text><rect x="565" y="227" width="110" height="36" rx="6" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="620" y="252" text-anchor="middle" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">p</text><rect x="695" y="227" width="110" height="36" rx="6" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="750" y="252" text-anchor="middle" font-size="18" fill="#f06449" font-family="IBM Plex Mono, monospace">list</text><text x="750" y="300" text-anchor="middle" font-size="17" fill="#f06449">filtered by a script</text><rect x="900" y="150" width="240" height="80" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="3"/><text x="1020" y="185" text-anchor="middle" font-size="20" fill="#0b1f33" font-family="IBM Plex Mono, monospace">script.js</text><text x="1020" y="212" text-anchor="middle" font-size="17" fill="#526274">changes the live page</text><line x1="895" y1="205" x2="812" y2="240" stroke="#f06449" stroke-width="3" marker-end="url(#m5b_2)"/><text x="580" y="380" text-anchor="middle" font-size="20" fill="#526274">a reload throws the live page away and builds it again from the file</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="requests">
+        <h2>One page, many requests</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>A page usually takes dozens of requests</li>
+            <li>Some go to other companies' servers</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 380" role="img" aria-label="One page in the browser sends requests to this site for its files, to a font service, to NYC Open Data for rows, and to an analytics service." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="430" y="140" width="300" height="180" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="430" y1="176" x2="730" y2="176" stroke="#0b1f33" stroke-width="2"/><circle cx="450" cy="158" r="6" fill="#f06449"/><circle cx="470" cy="158" r="6" fill="#f6c445"/><circle cx="490" cy="158" r="6" fill="#35c0c5"/><rect x="520" y="147" width="190" height="22" rx="0" fill="#fffdf7" stroke="#526274" stroke-width="1.5"/><text x="530" y="164" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">localhost:8000</text><text x="580" y="225" text-anchor="middle" font-size="24" fill="#0b1f33" font-weight="600">one page</text><text x="580" y="255" text-anchor="middle" font-size="19" fill="#526274">many requests</text><rect x="20" y="20" width="280" height="170" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="160" y="54" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">this site</text><text x="160" y="86" text-anchor="middle" font-size="17" fill="#526274" font-family="IBM Plex Mono, monospace">index.html</text><text x="160" y="116" text-anchor="middle" font-size="17" fill="#526274" font-family="IBM Plex Mono, monospace">styles.css</text><text x="160" y="146" text-anchor="middle" font-size="17" fill="#526274" font-family="IBM Plex Mono, monospace">script.js</text><text x="160" y="176" text-anchor="middle" font-size="17" fill="#526274" font-family="IBM Plex Mono, monospace">photo.jpg</text><rect x="860" y="20" width="280" height="80" rx="0" fill="#fffdf7" stroke="#f6c445" stroke-width="3"/><text x="1000" y="54" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">a font service</text><text x="1000" y="86" text-anchor="middle" font-size="17" fill="#526274">the typeface</text><rect x="860" y="200" width="280" height="80" rx="0" fill="#fffdf7" stroke="#2d7d68" stroke-width="3"/><text x="1000" y="234" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">NYC Open Data</text><text x="1000" y="266" text-anchor="middle" font-size="17" fill="#526274">the 311 rows</text><rect x="20" y="280" width="280" height="80" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="3"/><text x="160" y="314" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">an analytics service</text><text x="160" y="346" text-anchor="middle" font-size="17" fill="#526274">a record of the visit</text><line x1="430" y1="180" x2="305" y2="110" stroke="currentColor" stroke-width="2.5" marker-end="url(#m5b_3)"/><line x1="730" y1="175" x2="855" y2="70" stroke="currentColor" stroke-width="2.5" marker-end="url(#m5b_3)"/><line x1="730" y1="270" x2="855" y2="245" stroke="currentColor" stroke-width="2.5" marker-end="url(#m5b_3)"/><line x1="430" y1="290" x2="305" y2="320" stroke="currentColor" stroke-width="2.5" marker-end="url(#m5b_3)"/></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="where">
+        <h2>The server and the visitor's computer</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Everything after the files arrive happens on the visitor's computer</li>
+            <li>The server never sees which filter someone picked</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 340" role="img" aria-label="The server stores the files and sends them when asked. The visitor's computer builds the page, runs the scripts, and keeps anything saved in the browser." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="380" height="290" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="210" y="70" text-anchor="middle" font-size="24" fill="#0b1f33" font-weight="600">the server</text><rect x="60" y="100" width="300" height="120" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="210" y="150" text-anchor="middle" font-size="20" fill="#0b1f33">the folder</text><text x="210" y="180" text-anchor="middle" font-size="17" fill="#526274">files, as saved</text><text x="210" y="270" text-anchor="middle" font-size="20" fill="#2d7d68">stores the files</text><text x="210" y="298" text-anchor="middle" font-size="20" fill="#2d7d68">sends them when asked</text><line x1="410" y1="175" x2="548" y2="175" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_4)"/><text x="480" y="160" text-anchor="middle" font-size="18" fill="#526274">files</text><rect x="560" y="30" width="580" height="290" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="850" y="70" text-anchor="middle" font-size="24" fill="#0b1f33" font-weight="600">the visitor's computer</text><rect x="600" y="100" width="500" height="50" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="850" y="133" text-anchor="middle" font-size="20" fill="#0b1f33">builds the page</text><rect x="600" y="165" width="500" height="50" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="850" y="198" text-anchor="middle" font-size="20" fill="#0b1f33">runs the scripts</text><rect x="600" y="230" width="500" height="50" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="850" y="263" text-anchor="middle" font-size="20" fill="#0b1f33">keeps anything saved in the browser</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="why-server">
+        <h2>A page from the disk and from a server</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Browsers restrict pages opened straight from the disk</li>
+            <li>They usually can't load their own data</li>
+            <li>With a local server, the page acts as it will on the web</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 340" role="img" aria-label="A page opened straight from the disk has its data request blocked. The same page sent by a local server loads its data." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><text x="20" y="30" text-anchor="start" font-size="20" fill="#526274">opened straight from the disk</text><rect x="20" y="50" width="600" height="60" rx="0" fill="#fffdf7" stroke="#526274" stroke-width="2"/><text x="40" y="88" text-anchor="start" font-size="19" fill="#0b1f33" font-family="IBM Plex Mono, monospace">file:///Users/you/site/index.html</text><line x1="630" y1="80" x2="718" y2="80" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_5)"/><rect x="730" y="20" width="260" height="130" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="730" y1="56" x2="990" y2="56" stroke="#0b1f33" stroke-width="2"/><circle cx="750" cy="38" r="6" fill="#f06449"/><circle cx="770" cy="38" r="6" fill="#f6c445"/><circle cx="790" cy="38" r="6" fill="#35c0c5"/><rect x="750" y="66" width="150" height="12" fill="#b8c3ca"/><rect x="750" y="86" width="220" height="56" rx="0" fill="none" stroke="#b8c3ca" stroke-width="2" stroke-dasharray="6 5"/><text x="1010" y="75" text-anchor="start" font-size="20" fill="#f06449" font-weight="600">data blocked</text><text x="1010" y="102" text-anchor="start" font-size="17" fill="#526274">page is empty</text><text x="20" y="200" text-anchor="start" font-size="20" fill="#526274">sent by a local server</text><rect x="20" y="230" width="600" height="60" rx="0" fill="#fffdf7" stroke="#526274" stroke-width="2"/><text x="40" y="268" text-anchor="start" font-size="19" fill="#0b1f33" font-family="IBM Plex Mono, monospace">http://localhost:8000</text><line x1="630" y1="260" x2="718" y2="260" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_5)"/><rect x="730" y="200" width="260" height="130" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="730" y1="236" x2="990" y2="236" stroke="#0b1f33" stroke-width="2"/><circle cx="750" cy="218" r="6" fill="#f06449"/><circle cx="770" cy="218" r="6" fill="#f6c445"/><circle cx="790" cy="218" r="6" fill="#35c0c5"/><rect x="750" y="246" width="150" height="12" fill="#b8c3ca"/><rect x="752" y="282" width="26" height="40" fill="#0066b3"/><rect x="788" y="260" width="26" height="62" fill="#0066b3"/><rect x="824" y="294" width="26" height="28" fill="#0066b3"/><rect x="860" y="270" width="26" height="52" fill="#0066b3"/><rect x="896" y="252" width="26" height="70" fill="#0066b3"/><rect x="932" y="286" width="26" height="36" fill="#0066b3"/><text x="1010" y="255" text-anchor="start" font-size="20" fill="#2d7d68" font-weight="600">data loads</text><text x="1010" y="282" text-anchor="start" font-size="17" fill="#526274"></text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="static">
+        <h2>Static and dynamic sites</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Many DH projects are static on purpose</li>
+            <li>They need little upkeep for years</li>
+            <li>GitHub Pages hosts static sites</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 365" role="img" aria-label="A static site sends the same files from a folder to every visitor. A dynamic site uses a program and a database to build each page when it is asked for." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="20" width="540" height="330" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="290" y="60" text-anchor="middle" font-size="26" fill="#0b1f33" font-weight="700">static</text><rect x="50" y="100" width="150" height="110" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="2.5"/><text x="125" y="162" text-anchor="middle" font-size="18" fill="#0b1f33">the folder</text><line x1="205" y1="155" x2="340" y2="105" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="350" y="90" width="170" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="435" y="112" text-anchor="middle" font-size="16" fill="#526274">the same files</text><line x1="205" y1="155" x2="340" y2="150" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="350" y="135" width="170" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="435" y="157" text-anchor="middle" font-size="16" fill="#526274">the same files</text><line x1="205" y1="155" x2="340" y2="195" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="350" y="180" width="170" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="435" y="202" text-anchor="middle" font-size="16" fill="#526274">the same files</text><text x="290" y="260" text-anchor="middle" font-size="19" fill="#0b1f33">every visitor gets the same files</text><text x="290" y="300" text-anchor="middle" font-size="19" fill="#2d7d68">cheap to host, easy to archive</text><rect x="600" y="20" width="540" height="330" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="4"/><text x="870" y="60" text-anchor="middle" font-size="26" fill="#0b1f33" font-weight="700">dynamic</text><ellipse cx="680" cy="115" rx="45" ry="12" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><path d="M 635 115 L 635 185 A 45 12 0 0 0 725 185 L 725 115" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><text x="680" y="160" text-anchor="middle" font-size="16" fill="#0b1f33">database</text><line x1="730" y1="150" x2="778" y2="150" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="785" y="110" width="140" height="80" rx="0" fill="#fffdf7" stroke="#f06449" stroke-width="2.5"/><text x="855" y="145" text-anchor="middle" font-size="17" fill="#0b1f33">a program</text><text x="855" y="170" text-anchor="middle" font-size="17" fill="#0b1f33">builds pages</text><line x1="930" y1="150" x2="975" y2="105" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="985" y="90" width="130" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="1050" y="112" text-anchor="middle" font-size="16" fill="#526274">page for A</text><line x1="930" y1="150" x2="975" y2="150" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="985" y="135" width="130" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="1050" y="157" text-anchor="middle" font-size="16" fill="#526274">page for B</text><line x1="930" y1="150" x2="975" y2="195" stroke="currentColor" stroke-width="2" marker-end="url(#m5b_6)"/><rect x="985" y="180" width="130" height="32" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="2"/><text x="1050" y="202" text-anchor="middle" font-size="16" fill="#526274">page for C</text><text x="870" y="260" text-anchor="middle" font-size="19" fill="#0b1f33">each page is built when asked</text><text x="870" y="300" text-anchor="middle" font-size="19" fill="#526274">a library catalog, a shop, a login</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="agent-sees">
+        <h2>Screenshots and page structure</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The agent can take a screenshot</li>
+            <li>Or it can read the page's structure, from the markup</li>
+            <li>Ask it to check both</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 320" role="img" aria-label="The agent can look at a page as a screenshot, which shows layout, color, and overlap, or as its structure, which shows what each part is, with links, buttons, and labels." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="60" width="330" height="250" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="20" y1="96" x2="350" y2="96" stroke="#0b1f33" stroke-width="2"/><circle cx="40" cy="78" r="6" fill="#f06449"/><circle cx="60" cy="78" r="6" fill="#f6c445"/><circle cx="80" cy="78" r="6" fill="#35c0c5"/><rect x="110" y="67" width="220" height="22" rx="0" fill="#fffdf7" stroke="#526274" stroke-width="1.5"/><text x="120" y="84" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">localhost:8000</text><text x="40" y="135" text-anchor="start" font-size="30" fill="#0b1f33" font-weight="700">Jane Doe</text><rect x="40" y="160" width="260" height="12" fill="#dfe5e8"/><rect x="40" y="182" width="220" height="12" fill="#dfe5e8"/><rect x="40" y="215" width="110" height="40" rx="0" fill="#0066b3" stroke="#0066b3" stroke-width="0"/><text x="95" y="241" text-anchor="middle" font-size="17" fill="#fffdf7">Contact</text><line x1="360" y1="150" x2="448" y2="110" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_7)"/><line x1="360" y1="220" x2="448" y2="260" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_7)"/><rect x="460" y="20" width="320" height="200" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="620" y="55" text-anchor="middle" font-size="22" fill="#0b1f33" font-weight="600">a screenshot</text><rect x="490" y="75" width="260" height="110" fill="#dfe5e8"/><text x="620" y="137" text-anchor="middle" font-size="17" fill="#526274">a picture of the page</text><text x="620" y="250" text-anchor="middle" font-size="18" fill="#2d7d68">layout, color, overlap,</text><text x="620" y="274" text-anchor="middle" font-size="18" fill="#2d7d68">text cut off</text><rect x="820" y="20" width="320" height="200" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="980" y="55" text-anchor="middle" font-size="22" fill="#0b1f33" font-weight="600">the structure</text><text x="850" y="100" text-anchor="start" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">heading "Jane Doe"</text><text x="850" y="136" text-anchor="start" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">paragraph</text><text x="850" y="172" text-anchor="start" font-size="18" fill="#0b1f33" font-family="IBM Plex Mono, monospace">button "Contact"</text><text x="980" y="250" text-anchor="middle" font-size="18" fill="#2d7d68">what each part is,</text><text x="980" y="274" text-anchor="middle" font-size="18" fill="#2d7d68">links and buttons, labels</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="addresses">
+        <h2>A local address and a public address</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>If someone else types localhost, they reach their own computer</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 370" role="img" aria-label="Two addresses. http://localhost:8000/about.html works only on this computer. https://jdoe.github.io/my-site/about.html works for anyone, and names the GitHub account and repository." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><text x="20" y="30" text-anchor="start" font-size="20" fill="#526274" font-weight="600">on this computer only</text><text x="105.0" y="90" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">http://</text><path d="M 26 112 L 26 124 L 184 124 L 184 112" fill="none" stroke="#526274" stroke-width="4"/><text x="105.0" y="156" text-anchor="middle" font-size="19" fill="#0b1f33">plain connection</text><text x="297.0" y="90" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">localhost</text><path d="M 196 112 L 196 124 L 398 124 L 398 112" fill="none" stroke="#35c0c5" stroke-width="4"/><text x="297.0" y="156" text-anchor="middle" font-size="19" fill="#0b1f33">this computer</text><text x="467.0" y="90" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">:8000</text><path d="M 410 112 L 410 124 L 524 124 L 524 112" fill="none" stroke="#f6c445" stroke-width="4"/><text x="467.0" y="156" text-anchor="middle" font-size="19" fill="#0b1f33">which program</text><text x="659.0" y="90" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">/about.html</text><path d="M 536 112 L 536 124 L 782 124 L 782 112" fill="none" stroke="#f06449" stroke-width="4"/><text x="659.0" y="156" text-anchor="middle" font-size="19" fill="#0b1f33">which file</text><text x="20" y="215" text-anchor="start" font-size="20" fill="#526274" font-weight="600">for anyone</text><text x="116.0" y="275" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">https://</text><path d="M 26 297 L 26 309 L 206 309 L 206 297" fill="none" stroke="#2d7d68" stroke-width="4"/><text x="116.0" y="341" text-anchor="middle" font-size="19" fill="#0b1f33">secure connection</text><text x="374.0" y="275" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">jdoe.github.io</text><path d="M 218 297 L 218 309 L 530 309 L 530 297" fill="none" stroke="#35c0c5" stroke-width="4"/><text x="374.0" y="341" text-anchor="middle" font-size="19" fill="#0b1f33">your GitHub name</text><text x="632.0" y="275" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">/my-site</text><path d="M 542 297 L 542 309 L 722 309 L 722 297" fill="none" stroke="#f6c445" stroke-width="4"/><text x="632.0" y="341" text-anchor="middle" font-size="19" fill="#0b1f33">the repository</text><text x="857.0" y="275" text-anchor="middle" font-size="36" fill="#0b1f33" font-weight="500" font-family="IBM Plex Mono, monospace">/about.html</text><path d="M 734 297 L 734 309 L 980 309 L 980 297" fill="none" stroke="#f06449" stroke-width="4"/><text x="857.0" y="341" text-anchor="middle" font-size="19" fill="#0b1f33">which file</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="online-divider" class="section-divider" data-state="is-section-divider">
+        <h1>Putting the site online</h1>
+      </section>
+
+      <section id="pages">
+        <h2>GitHub Pages</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>GitHub keeps a copy of the folder, called a repository</li>
+            <li>Pages sends those files to visitors</li>
+            <li>It only sends files, so it hosts static sites</li>
+            <li>Sending saved versions to GitHub is a push</li>
+            <li>You sign in to GitHub yourself</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 280" role="img" aria-label="Your folder, with its files and history, is sent to GitHub, which keeps a copy called the repository. GitHub Pages serves it at a public address for anyone." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="m5b_10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="60" width="230" height="200" rx="0" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="135" y="100" text-anchor="middle" font-size="21" fill="#0b1f33" font-weight="600">your folder</text><text x="135" y="130" text-anchor="middle" font-size="17" fill="#526274">files and history</text><circle cx="75" cy="195" r="12" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><circle cx="130" cy="195" r="12" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><circle cx="185" cy="195" r="12" fill="#fffdf7" stroke="#0b1f33" stroke-width="2.5"/><line x1="87" y1="195" x2="118" y2="195" stroke="#0b1f33" stroke-width="2.5"/><line x1="142" y1="195" x2="173" y2="195" stroke="#0b1f33" stroke-width="2.5"/><line x1="255" y1="160" x2="335" y2="160" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_10)"/><text x="295" y="145" text-anchor="middle" font-size="17" fill="#526274">send</text><rect x="345" y="60" width="230" height="200" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><text x="460" y="100" text-anchor="middle" font-size="21" fill="#0b1f33" font-weight="600">GitHub</text><text x="460" y="130" text-anchor="middle" font-size="17" fill="#526274">a copy: the repository</text><rect x="385" y="160" width="150" height="60" rx="0" fill="#fffdf7" stroke="#f6c445" stroke-width="3"/><text x="460" y="197" text-anchor="middle" font-size="20" fill="#0b1f33" font-weight="600">Pages</text><line x1="580" y1="160" x2="660" y2="160" stroke="currentColor" stroke-width="3" marker-end="url(#m5b_10)"/><text x="620" y="145" text-anchor="middle" font-size="17" fill="#526274">serves</text><rect x="670" y="60" width="470" height="200" rx="0" fill="#fffdf7" stroke="#0b1f33" stroke-width="3"/><line x1="670" y1="96" x2="1140" y2="96" stroke="#0b1f33" stroke-width="2"/><circle cx="690" cy="78" r="6" fill="#f06449"/><circle cx="710" cy="78" r="6" fill="#f6c445"/><circle cx="730" cy="78" r="6" fill="#35c0c5"/><rect x="760" y="67" width="360" height="22" rx="0" fill="#fffdf7" stroke="#526274" stroke-width="1.5"/><text x="770" y="84" text-anchor="start" font-size="15" fill="#526274" font-family="IBM Plex Mono, monospace">https://jdoe.github.io/my-site</text><text x="905" y="150" text-anchor="middle" font-size="22" fill="#0b1f33" font-weight="600">your site, for anyone</text><text x="905" y="185" text-anchor="middle" font-size="17" fill="#526274">updates a minute or two</text><text x="905" y="207" text-anchor="middle" font-size="17" fill="#526274">after each new send</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="public">
+        <h2>Making the site public</h2>
+        <div class="content">
+          <div class="grid-2 mt-28">
+          <div class="paper-card cyan"><p class="card-title">Anyone can open it</p><p class="card-copy">Search engines and archives can copy it.</p></div>
+          <div class="paper-card yellow"><p class="card-title">Everything in the folder goes up</p><p class="card-copy">Drafts, notes, old files.</p></div>
+          <div class="paper-card orange"><p class="card-title">The repository is usually public</p><p class="card-copy">Every file and every saved version.</p></div>
+          <div class="paper-card green"><p class="card-title">Images and texts need permission</p><p class="card-copy">Your own, permitted, or openly licensed.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="homework">
+        <h2>Homework</h2>
+        <div class="content">
+          <div class="paper-card orange">
+            <ul class="cues large-cues">
+            <li>Make a GitHub account if you don't have one</li>
+            <li>Look through your site's folder for anything you wouldn't publish</li>
+            <li>Have the agent publish the site with GitHub Pages</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>

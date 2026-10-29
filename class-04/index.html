@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let the Agent Manage Project History</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <h1>Let the agent manage project history</h1>
+        <p class="subtitle">DHUM / DATA 70600 · Class 4</p>
+      </section>
+
+      <section id="last-week">
+        <h2>Last week's homework folders</h2>
+        <div class="content">
+          <div class="paper-card yellow">
+            <ul class="cues large-cues">
+            <li>The agent worked in a folder of your own files</li>
+            <li>Some of you had files changed or deleted</li>
+            <li>There was no earlier copy to go back to</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="agent">
+        <h2>One request, many changed files</h2>
+        <div class="content">
+          <div class="side">
+            <ul class="cues">
+            <li>An agent can change many files in one step</li>
+            <li>Codex has no undo command</li>
+            <li>OpenAI says to save a version before and after each task</li>
+          </ul>
+            <figure class="" style="margin: 0;">
+            <svg viewBox="0 0 1100 310" role="img" aria-label="One request goes to the agent, which changes five files." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="40" y="120" width="230" height="70" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="155" y="162" text-anchor="middle" font-size="25" fill="currentColor">one request</text><rect x="400" y="115" width="200" height="80" fill="#0b1f33"/><text x="500" y="162" text-anchor="middle" font-size="26" font-weight="600" fill="#fffdf7">the agent</text><line x1="270" y1="155" x2="392" y2="155" stroke="currentColor" stroke-width="3" marker-end="url(#aa)"/><line x1="600" y1="155" x2="822" y2="43" stroke="#f06449" stroke-width="2.5" marker-end="url(#aa)" color="#f06449"/><rect x="830" y="20" width="230" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="945.0" y="49.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">index.html</text><line x1="600" y1="155" x2="822" y2="101" stroke="#f06449" stroke-width="2.5" marker-end="url(#aa)" color="#f06449"/><rect x="830" y="78" width="230" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="945.0" y="107.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">app.js</text><line x1="600" y1="155" x2="822" y2="159" stroke="#f06449" stroke-width="2.5" marker-end="url(#aa)" color="#f06449"/><rect x="830" y="136" width="230" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="945.0" y="165.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">styles.css</text><line x1="600" y1="155" x2="822" y2="217" stroke="#f06449" stroke-width="2.5" marker-end="url(#aa)" color="#f06449"/><rect x="830" y="194" width="230" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="945.0" y="223.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">data.json</text><line x1="600" y1="155" x2="822" y2="275" stroke="#f06449" stroke-width="2.5" marker-end="url(#aa)" color="#f06449"/><rect x="830" y="252" width="230" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="945.0" y="281.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">README.md</text></svg>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="versions">
+        <h2>Saved versions of a file and of a project</h2>
+        <div class="content">
+          <div class="grid-2 align-center">
+            <div class="paper-card cyan">
+              <p class="card-copy mono">essay.docx</p>
+              <p class="card-copy mono">essay-v2.docx</p>
+              <p class="card-copy mono">essay-final.docx</p>
+              <p class="card-copy mono">essay-final-2.docx</p>
+            </div>
+            <ul class="cues">
+            <li>Most of us have saved essays this way</li>
+            <li>Git does it for the whole project folder</li>
+            <li>Each saved version is a commit</li>
+            <li>Each commit has a short message about what changed</li>
+          </ul>
+          </div>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 175" role="img" aria-label="A line of four commits, each labeled with its message." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><line x1="80" y1="60" x2="1080" y2="60" stroke="currentColor" stroke-width="3"/><circle cx="140" cy="60" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="140" y="110" text-anchor="middle" font-size="23" fill="currentColor">"first working version"</text><circle cx="420" cy="60" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="420" y="110" text-anchor="middle" font-size="23" fill="currentColor">"add borough filter"</text><circle cx="700" cy="60" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="700" y="110" text-anchor="middle" font-size="23" fill="currentColor">"fix phone layout"</text><circle cx="980" cy="60" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="980" y="110" text-anchor="middle" font-size="23" fill="currentColor">"add map"</text><text x="80" y="160" font-size="21" fill="#526274">Each circle is a commit of the whole folder. The words under it are its message.</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="terms">
+        <h2>Commits and branches</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>A branch is a separate line of work</li>
+            <li>It starts from a commit</li>
+            <li>Codex sometimes makes one on its own when it starts a task</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 210" role="img" aria-label="A line of saved versions. From the version that works, a branch splits off for new work. A dashed arrow returns from the branch to the version that works." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
+              <defs><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+              <line x1="60" y1="150" x2="1100" y2="150" stroke="currentColor" stroke-width="3"/>
+              <circle cx="120" cy="150" r="14" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><circle cx="320" cy="150" r="14" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><circle cx="520" cy="150" r="14" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <circle cx="520" cy="150" r="22" fill="none" stroke="#f06449" stroke-width="4"/>
+              <text x="120" y="195" text-anchor="middle" font-size="20" fill="currentColor">a commit</text>
+              <text x="320" y="195" text-anchor="middle" font-size="20" fill="currentColor">a commit</text>
+              <text x="520" y="195" text-anchor="middle" font-size="20" fill="#f06449">the version that works</text>
+              <text x="1100" y="195" text-anchor="end" font-size="20" fill="currentColor">the main line of work</text>
+              <line x1="520" y1="150" x2="720" y2="60" stroke="currentColor" stroke-width="3"/>
+              <line x1="720" y1="60" x2="1100" y2="60" stroke="currentColor" stroke-width="3"/>
+              <circle cx="720" cy="60" r="14" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <circle cx="920" cy="60" r="14" fill="#fffdf7" stroke="currentColor" stroke-width="3"/>
+              <text x="920" y="35" text-anchor="middle" font-size="20" fill="currentColor">a branch: new work</text>
+              <path d="M 920 78 Q 720 150 548 150" fill="none" stroke="#f06449" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#a4)"/>
+              <text x="885" y="132" text-anchor="middle" font-size="18" fill="#f06449">go back</text>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="codex">
+        <h2>Codex and project history</h2>
+        <div class="content">
+          <div class="grid-3 mt-28">
+          <div class="paper-card cyan"><p class="card-title">In a folder with no history</p><p class="card-copy">Codex suggests read-only mode.</p><p class="card-copy">It can look at files but not edit them.</p></div>
+          <div class="paper-card yellow"><p class="card-title">The review pane</p><p class="card-copy">Shows what changed in each file.</p><p class="card-copy">Can put a file back.</p><p class="card-copy">Needs history, and offers to set it up.</p></div>
+          <div class="paper-card orange"><p class="card-title">Saving a version</p><p class="card-copy">Codex asks for approval first.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="covers">
+        <h2>Files a save covers</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Changes since the last commit are not saved yet</li>
+          </ul>
+          <figure style="margin: 0;">
+            <svg viewBox="0 0 1140 310" role="img" aria-label="The files inside the project folder are covered by each commit. A database and a file in Downloads are outside it and not covered." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><rect x="30" y="40" width="620" height="250" fill="#fffdf7" stroke="#35c0c5" stroke-width="5"/><text x="50" y="78" font-size="25" font-weight="600" fill="currentColor">the project folder</text><text x="630" y="78" text-anchor="end" font-size="22" fill="#2d7d68">covered by each commit</text><rect x="60" y="110" width="260" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="190.0" y="139.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">index.html</text><rect x="350" y="110" width="260" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="480.0" y="139.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">app.js</text><rect x="60" y="190" width="260" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="190.0" y="219.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">styles.css</text><rect x="350" y="190" width="260" height="46" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="480.0" y="219.0" text-anchor="middle" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">data.json</text><text x="920" y="78" text-anchor="middle" font-size="22" fill="#f06449">not covered</text><ellipse cx="820" cy="130" rx="70" ry="18" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><path d="M 750 130 L 750 220 A 70 18 0 0 0 890 220 L 890 130" fill="#fffdf7" stroke="currentColor" stroke-width="2.5"/><text x="820" y="190" text-anchor="middle" font-size="22" fill="currentColor">a database</text><rect x="930" y="112" width="180" height="120" fill="#fffdf7" stroke="currentColor" stroke-width="2.5" stroke-dasharray="7 5"/><text x="1020" y="165" text-anchor="middle" font-size="22" fill="currentColor">a file in</text><text x="1020" y="189" text-anchor="middle" font-size="22" fill="currentColor">Downloads</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="record">
+        <h2>Commit messages and new conversations</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>A new conversation remembers nothing from the last one</li>
+            <li>It can read the history</li>
+            <li>It learns what was done and why from the commit messages</li>
+          </ul>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 280" role="img" aria-label="This conversation makes commits. The history holds their messages. A new conversation reads them." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="20" y="90" width="250" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="145" y="135" text-anchor="middle" font-size="25" fill="currentColor">this conversation</text><text x="145" y="162" text-anchor="middle" font-size="21" fill="#526274">makes commits</text><rect x="400" y="30" width="360" height="220" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="580" y="70" text-anchor="middle" font-size="25" font-weight="600" fill="currentColor">the history</text><text x="430" y="110" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">"first working version"</text><text x="430" y="146" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">"add borough filter"</text><text x="430" y="182" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">"fix phone layout"</text><text x="430" y="218" font-size="22" font-family="IBM Plex Mono, monospace" fill="currentColor">"add map"</text><rect x="890" y="90" width="250" height="100" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="1015" y="135" text-anchor="middle" font-size="25" fill="currentColor">a new conversation</text><text x="1015" y="162" text-anchor="middle" font-size="21" fill="#526274">reads them</text><line x1="270" y1="140" x2="392" y2="140" stroke="currentColor" stroke-width="3" marker-end="url(#ar)"/><line x1="760" y1="140" x2="882" y2="140" stroke="currentColor" stroke-width="3" marker-end="url(#ar)"/></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="research-record">
+        <h2>Project history as a research record</h2>
+        <div class="content">
+          <div class="grid-2 align-center">
+            <div class="folder-window">
+              <div class="window-dots"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span></div>
+              <p class="created">commit 4f2a9c1</p>
+              <p>Author: Your Name</p>
+              <p>Date: Thu Sep 24, 7:05 PM</p>
+              <p>&nbsp;</p>
+              <p>Add a map of requests by borough</p>
+            </div>
+            <ul class="cues">
+            <li>You can see how the project was made, in order</li>
+            <li>Who made each change, and when</li>
+            <li>Each commit has an ID you can cite</li>
+            <li>Zenodo can archive a version from GitHub with a DOI</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="github">
+        <h2>Git and GitHub</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>Git keeps the history in the project folder</li>
+            <li>If you delete the folder, the history goes too</li>
+            <li>GitHub is a website that keeps a copy</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1130 270" role="img" aria-label="On this computer, the project folder holds the files and their history. GitHub, on a website, can hold a copy. That comes in Class 5." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><rect x="30" y="30" width="480" height="220" fill="none" stroke="currentColor" stroke-width="3"/><text x="50" y="66" font-size="25" font-weight="600" fill="currentColor">this computer</text><rect x="70" y="90" width="400" height="130" fill="#fffdf7" stroke="#35c0c5" stroke-width="4"/><text x="270" y="140" text-anchor="middle" font-size="25" fill="currentColor">the project folder</text><text x="270" y="172" text-anchor="middle" font-size="22" fill="#526274">files and their history (git)</text><rect x="700" y="90" width="400" height="130" fill="#fffdf7" stroke="currentColor" stroke-width="3" stroke-dasharray="8 6"/><text x="900" y="140" text-anchor="middle" font-size="25" fill="currentColor">GitHub</text><text x="900" y="172" text-anchor="middle" font-size="22" fill="#526274">a copy on a website</text><line x1="470" y1="155" x2="692" y2="155" stroke="currentColor" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#ag)"/><text x="585" y="140" text-anchor="middle" font-size="21" fill="#526274">Class 5</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="going-back">
+        <h2>Going back to a saved version</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The folder returns to that version</li>
+            <li>Later commits are still kept</li>
+            <li>After a bad run, some people go back and ask again</li>
+          </ul>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 250" role="img" aria-label="A line of four commits. The folder is back at the second one. The two later commits are still kept." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><line x1="80" y1="130" x2="1080" y2="130" stroke="currentColor" stroke-width="3"/><circle cx="140" cy="130" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="140" y="180" text-anchor="middle" font-size="23" fill="currentColor">"first working version"</text><circle cx="420" cy="130" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="420" y="180" text-anchor="middle" font-size="23" fill="currentColor">"add borough filter"</text><circle cx="700" cy="130" r="16" fill="#fffdf7" stroke="#8a97a3" stroke-width="3"/><text x="700" y="180" text-anchor="middle" font-size="23" fill="#8a97a3">"fix phone layout"</text><circle cx="980" cy="130" r="16" fill="#fffdf7" stroke="#8a97a3" stroke-width="3"/><text x="980" y="180" text-anchor="middle" font-size="23" fill="#8a97a3">"add map"</text><circle cx="420" cy="130" r="25" fill="none" stroke="#f06449" stroke-width="4"/><text x="420" y="50" text-anchor="middle" font-size="23" font-weight="600" fill="#f06449">the folder now</text><line x1="420" y1="60" x2="420" y2="98" stroke="#f06449" stroke-width="3" marker-end="url(#ab)" color="#f06449"/><text x="840" y="230" text-anchor="middle" font-size="22" fill="#526274">still kept, and you can return to them</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="when-it-broke">
+        <h2>Finding the change that broke something</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The agent goes back through the saved versions</li>
+            <li>It tests each one</li>
+            <li>The first version that fails has the change that broke it</li>
+          </ul>
+          <figure class="mt-28" style="margin: 0;">
+            <svg viewBox="0 0 1160 245" role="img" aria-label="Five commits. The first three work. The fourth, add map, is the first that is broken, so it is the change that broke the app." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><line x1="60" y1="110" x2="1100" y2="110" stroke="currentColor" stroke-width="3"/><circle cx="130" cy="110" r="18" fill="#fffdf7" stroke="#2d7d68" stroke-width="4"/><text x="130" y="60" text-anchor="middle" font-size="22" font-weight="600" fill="#2d7d68">works</text><text x="130" y="165" text-anchor="middle" font-size="20" fill="currentColor">"first working version"</text><circle cx="355" cy="110" r="18" fill="#fffdf7" stroke="#2d7d68" stroke-width="4"/><text x="355" y="60" text-anchor="middle" font-size="22" font-weight="600" fill="#2d7d68">works</text><text x="355" y="165" text-anchor="middle" font-size="20" fill="currentColor">"add borough filter"</text><circle cx="580" cy="110" r="18" fill="#fffdf7" stroke="#2d7d68" stroke-width="4"/><text x="580" y="60" text-anchor="middle" font-size="22" font-weight="600" fill="#2d7d68">works</text><text x="580" y="165" text-anchor="middle" font-size="20" fill="currentColor">"fix phone layout"</text><circle cx="805" cy="110" r="18" fill="#fffdf7" stroke="#f06449" stroke-width="4"/><text x="805" y="60" text-anchor="middle" font-size="22" font-weight="600" fill="#f06449">broken</text><text x="805" y="165" text-anchor="middle" font-size="20" fill="currentColor">"add map"</text><circle cx="1030" cy="110" r="18" fill="#fffdf7" stroke="#f06449" stroke-width="4"/><text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="600" fill="#f06449">broken</text><text x="1030" y="165" text-anchor="middle" font-size="20" fill="currentColor">"add legend"</text><circle cx="805" cy="110" r="28" fill="none" stroke="#f06449" stroke-width="4"/><text x="805" y="225" text-anchor="middle" font-size="22" fill="#f06449">the change that broke it</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="parallel">
+        <h2>Several tasks at once</h2>
+        <div class="content">
+          <ul class="cues">
+            <li>The Codex app can run tasks at the same time</li>
+            <li>Each task gets its own copy and branch</li>
+            <li>The results are combined afterward</li>
+            <li>If two tasks change the same lines, someone has to choose</li>
+          </ul>
+          <figure class="mt-20" style="margin: 0;">
+            <svg viewBox="0 0 1160 320" role="img" aria-label="From one commit on the main line, two tasks run at the same time in separate copies of the project. Both are combined back into the main line." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;"><defs><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><line x1="40" y1="170" x2="1120" y2="170" stroke="currentColor" stroke-width="3"/><circle cx="120" cy="170" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="1120" y="210" text-anchor="end" font-size="21" fill="currentColor">the main line of work</text><path d="M 120 170 L 280 60 L 700 60 L 860 170" fill="none" stroke="#35c0c5" stroke-width="4"/><rect x="330" y="30" width="320" height="60" fill="#fffdf7" stroke="#35c0c5" stroke-width="3"/><text x="490" y="68" text-anchor="middle" font-size="21" fill="currentColor">task 1: add a map (copy 1)</text><path d="M 120 170 L 280 280 L 700 280 L 860 170" fill="none" stroke="#f6c445" stroke-width="4"/><rect x="330" y="250" width="320" height="60" fill="#fffdf7" stroke="#f6c445" stroke-width="3"/><text x="490" y="288" text-anchor="middle" font-size="21" fill="currentColor">task 2: new colors (copy 2)</text><circle cx="860" cy="170" r="16" fill="#fffdf7" stroke="currentColor" stroke-width="3"/><text x="860" y="130" text-anchor="middle" font-size="21" font-weight="600" fill="currentColor">combined</text></svg>
+          </figure>
+        </div>
+      </section>
+
+      <section id="homework">
+        <h2>Homework</h2>
+        <div class="content">
+          <div class="paper-card orange">
+            <ul class="cues large-cues">
+            <li>Add something ambitious to your project from last week</li>
+            <li>Have the agent save a version first</li>
+            <li>If the change goes badly, go back</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+</body>
+</html>
