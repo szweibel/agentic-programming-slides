@@ -43,7 +43,7 @@
       <section id="compaction">
         <h2>The conversation does not fit forever</h2>
         <div class="content">
-          <p class="large">When the conversation gets long, the app replaces the early part with a summary, and details are lost. That is why a long session can forget a decision from an hour ago.</p>
+          <p class="large">When the conversation gets long, the app replaces the early part with a summary, and details are lost. After that, the model no longer sees a decision made an hour earlier.</p>
           <figure class="mt-28" style="margin: 0;">
             <svg viewBox="0 0 1160 210" role="img" aria-label="A long conversation shown as a row of blocks. After compaction the early blocks are replaced by one summary block and only the recent blocks remain." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
               <defs><marker id="a3c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
@@ -63,7 +63,7 @@
       <section id="how-it-acts">
         <h2>How it acts</h2>
         <div class="content">
-          <p class="large">The model writes a request, the program carries it out with a tool, and the result goes back to the model, which writes the next step.</p>
+          <p class="large">The model writes a request, and the program carries it out with a tool and sends the result back to the model, which writes the next step.</p>
           <figure class="mt-28" style="margin: 0;">
             <svg viewBox="0 0 1160 240" role="img" aria-label="The model asks the program for an action. The program runs a tool that acts on your computer. What happened goes back to the model, which writes the next step. The program sometimes stops and asks you first." style="max-width: 100%; height: auto; color: #0b1f33; font-family: 'IBM Plex Sans', sans-serif;">
               <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
@@ -101,7 +101,7 @@
           <ul class="cues">
             <li>With a tool for writing files, the model can change a file on your computer</li>
             <li>Without one, it can only describe the change for you to make</li>
-            <li>The program decides which tools exist and which need your approval</li>
+            <li>OpenAI decides which tools the app has, and you choose which ones need your approval</li>
           </ul>
         </div>
       </section>
