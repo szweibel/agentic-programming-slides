@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images from Diffusion and Images from Code</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="styles.css?v=9">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title">
+        <div class="halves">
+          <div><img src="img/blue-1.jpg" alt="Diffusion image of a bicycle on a country road"><span class="tag" style="color:var(--noise)">Diffusion model</span></div>
+          <div><canvas id="title-scene" width="1280" height="1064"></canvas><span class="tag" style="color:var(--code)">Program running in this page</span></div>
+        </div>
+        <div class="band">
+          <h1>Images from diffusion and images from code</h1>
+          <p class="sub">DHUM / DATA 70600</p>
+        </div>
+      </section>
+
+      <section id="pixels" class="k-noise">
+        <h2>A picture as a grid of pixels</h2><span class="kind">Diffusion</span>
+        <div class="body">
+          <div class="vis">
+            <div class="row">
+              <div class="panel"><canvas id="px-main" width="576" height="448" style="width:440px;height:342px"></canvas><span class="cap">the diffusion image</span></div>
+              <div class="panel"><canvas id="px-zoom" width="384" height="288" style="width:290px;height:218px"></canvas><span class="cap" id="px-read">&nbsp;</span></div>
+            </div>
+          </div>
+          <ul class="cues">
+            <li>Each square is one color</li>
+            <li>The file has no record of which squares are the bicycle</li>
+            <li>A person or a model has to find the bicycle again from the colors</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="training" class="k-noise">
+        <h2>Training on noised pictures</h2><span class="kind">Diffusion</span>
+        <div class="body wide">
+          <div class="vis">
+            <div class="strip" id="noise-strip"></div>
+            <div class="flow" style="margin-top:14px">
+              <div class="node">Noised picture<small>plus its caption</small></div><span class="arrow">→</span>
+              <div class="node">Model</div><span class="arrow">→</span>
+              <div class="node">Its guess at the noise<small>compared with the noise that was added</small></div>
+            </div>
+          </div>
+          <ul class="cues across">
+            <li>Researchers add random noise to a very large set of captioned pictures</li>
+            <li>They give the model a noised picture and its caption, and it guesses the noise</li>
+            <li>After enough rounds it can remove noise from pictures it has never seen</li>
+          </ul>
+          <p class="src">Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models (2020). Photograph: Newspaper Row, New York, about 1900, public domain, Wikimedia Commons.</p>
+        </div>
+      </section>
+
+      <section id="generating" class="k-noise">
+        <h2>Generating by removing noise</h2><span class="kind">Diffusion</span>
+        <div class="body">
+          <div class="vis">
+            <div class="panel" style="width:560px">
+              <img id="step-img" src="img/step-00.jpg" width="560" height="436" alt="Diffusion steps">
+              <div class="bar"><i id="step-bar"></i></div>
+              <span class="cap" id="step-cap">step 0 of 30</span>
+            </div>
+          </div>
+          <ul class="cues">
+            <li>The model starts from random noise</li>
+            <li>At each step it removes some noise, using the prompt</li>
+            <li>It works on a compressed version and converts it to pixels at the end</li>
+            <li>Frames from one run of Qwen-Image on this laptop</li>
+          </ul>
+        </div>
+        <p class="src">Rombach et al., High-Resolution Image Synthesis with Latent Diffusion Models (2022). Wu et al., Qwen-Image Technical Report (2025).</p>
+      </section>
+
+      <section id="points" class="k-noise">
+        <h2>Diffusion on a few hundred points</h2><span class="kind">Diffusion</span>
+        <div class="body">
+          <div class="vis">
+            <div class="panel">
+              <canvas id="pt-canvas" width="1120" height="800" style="width:560px;height:400px"></canvas>
+              <span class="cap" id="pt-cap">&nbsp;</span>
+            </div>
+          </div>
+          <ul class="cues">
+            <li>Each dot starts at a random position</li>
+            <li>Each step moves every dot a short way toward places where bicycle dots are likely</li>
+            <li>I gave the program on this slide the bicycle outline</li>
+            <li>An image model learned its shapes from training pictures</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="seeds" class="k-noise">
+        <h2>Four runs of one prompt</h2><span class="kind">Diffusion</span>
+        <div class="body">
+          <div class="vis">
+            <div class="grid4">
+              <img src="img/blue-1.jpg" width="296" height="230" alt="">
+              <img src="img/blue-2.jpg" width="296" height="230" alt="">
+              <img src="img/blue-3.jpg" width="296" height="230" alt="">
+              <img src="img/blue-4.jpg" width="296" height="230" alt="">
+            </div>
+          </div>
+          <ul class="cues">
+            <li>One prompt, four runs, four starting noise patterns</li>
+            <li>You set the subject with the prompt</li>
+            <li>The framing and the details change with the starting noise</li>
+            <li>People usually run several and pick one</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="one-change-diffusion" class="k-noise">
+        <h2>Asking a diffusion model for one change</h2><span class="kind">Diffusion</span>
+        <div class="body wide">
+          <div class="row">
+            <div class="panel"><img src="img/blue-1.jpg" width="360" height="280" alt=""><span class="cap"><b>blue bicycle</b> in the prompt</span></div>
+            <div class="panel"><img src="img/red-1.jpg" width="360" height="280" alt=""><span class="cap"><b>red bicycle</b> in the prompt, same starting noise</span></div>
+            <div class="panel"><canvas id="diff-d" width="576" height="448" style="width:360px;height:280px"></canvas><span class="cap" id="diff-d-cap">&nbsp;</span></div>
+          </div>
+          <ul class="cues across">
+            <li>One word in the prompt changed</li>
+            <li>The model made the whole picture again</li>
+            <li>Editing tools can limit the change to a masked area</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="counts" class="k-noise">
+        <h2>Counts, positions, and lettering</h2><span class="kind">Diffusion</span>
+        <div class="body wide">
+          <div class="row" style="gap:16px;align-items:center">
+            <div class="rowlabels"><span>Stable Diffusion XL<br>2023</span><span>Qwen-Image<br>2025</span></div>
+            <div class="panel">
+              <span class="cap">four runs asking for <b>exactly seven birds</b></span>
+              <div class="strip"><img src="img/sdxl-birds-1.jpg" width="124" height="96" alt=""><img src="img/sdxl-birds-2.jpg" width="124" height="96" alt=""><img src="img/sdxl-birds-3.jpg" width="124" height="96" alt=""><img src="img/sdxl-birds-4.jpg" width="124" height="96" alt=""></div>
+              <div class="strip"><img src="img/birds-1.jpg" width="124" height="96" alt=""><img src="img/birds-2.jpg" width="124" height="96" alt=""><img src="img/birds-3.jpg" width="124" height="96" alt=""><img src="img/birds-4.jpg" width="124" height="96" alt=""></div>
+            </div>
+            <div class="panel">
+              <span class="cap">four runs asking for a sign that reads <b>GRADUATE CENTER LIBRARY</b></span>
+              <div class="strip"><img src="img/sdxl-sign-1.jpg" width="124" height="96" alt=""><img src="img/sdxl-sign-2.jpg" width="124" height="96" alt=""><img src="img/sdxl-sign-3.jpg" width="124" height="96" alt=""><img src="img/sdxl-sign-4.jpg" width="124" height="96" alt=""></div>
+              <div class="strip"><img src="img/sign-1.jpg" width="124" height="96" alt=""><img src="img/sign-2.jpg" width="124" height="96" alt=""><img src="img/sign-3.jpg" width="124" height="96" alt=""><img src="img/sign-4.jpg" width="124" height="96" alt=""></div>
+            </div>
+          </div>
+          <ul class="cues across" id="counts-cues">
+            <li>The 2023 model drew far more than seven birds and misspelled every sign</li>
+            <li>The 2025 model spelled the sign correctly in all four runs</li>
+            <li>One of its four runs has seven birds, and the other three have eight</li>
+          </ul>
+          <p class="src">Wadhwa et al., NumBench: Diagnosing Counting Failures in Text-to-Image Models (2026). Everything in Its Place: Benchmarking Spatial Intelligence of Text-to-Image Models (2026).</p>
+        </div>
+      </section>
+
+      <section id="program" class="k-code">
+        <h2>A language model writing a drawing program</h2><span class="kind">Code</span>
+        <div class="body wide">
+          <div class="flow">
+            <div class="node">Request</div><span class="arrow">→</span>
+            <div class="node">Language<br>model</div><span class="arrow">→</span>
+            <div class="panel"><div class="codewall"><pre id="codewall"></pre></div><span class="cap">part of the program for this scene, shrunk</span></div>
+            <span class="arrow">→</span>
+            <div class="node">Browser</div><span class="arrow">→</span>
+            <div class="panel"><canvas id="prog-scene" width="800" height="500" style="width:400px;height:250px"></canvas><span class="cap">drawn by the browser as you watch</span></div>
+          </div>
+          <ul class="cues across">
+            <li>The model writes text, the same way it writes any other code</li>
+            <li>The browser reads the program and draws the picture</li>
+            <li>Your 311 page is a program Codex wrote</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="parts" class="k-code">
+        <h2>Named parts in the program</h2><span class="kind">Code</span>
+        <div class="body">
+          <div class="vis">
+            <div class="panel"><canvas id="parts-scene" width="1360" height="850" style="width:680px;height:425px"></canvas></div>
+          </div>
+          <div>
+            <div class="readout" id="parts-read" style="margin-bottom:26px">&nbsp;</div>
+            <ul class="cues">
+              <li>Each part has its own entry in the program, with a shape, a position, and a color</li>
+              <li>The agent can find the bicycle by name</li>
+              <li>You can ask about any part by name</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="one-change-code" class="k-code">
+        <h2>Asking for one change to a program</h2><span class="kind">Code</span>
+        <div class="body wide">
+          <div class="row">
+            <div class="panel"><canvas id="chg-a" width="720" height="450" style="width:360px;height:225px"></canvas><span class="cap" id="chg-a-cap">before</span></div>
+            <div class="panel"><canvas id="chg-b" width="720" height="450" style="width:360px;height:225px"></canvas><span class="cap" id="chg-b-cap">after</span></div>
+            <div class="panel"><canvas id="diff-c" width="720" height="450" style="width:360px;height:225px"></canvas><span class="cap" id="diff-c-cap">&nbsp;</span></div>
+          </div>
+          <ul class="cues across">
+            <li>You ask for a red bicycle and the agent changes one color value</li>
+            <li>Ask for seven birds and the program draws seven</li>
+            <li>The program draws everything else from the same values as before</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="parameters" class="k-code">
+        <h2>Parameters and seeds</h2><span class="kind">Code</span>
+        <div class="body wide">
+          <div class="row" style="gap:40px">
+            <div class="panel" style="width:480px">
+              <canvas id="par-scene" width="960" height="600" style="width:480px;height:300px"></canvas>
+              <div class="knobs">
+                <label>time of day</label><input type="range" id="par-tod" min="0.04" max="0.96" step="0.01" value="0.3">
+                <label>trees</label><input type="range" id="par-trees" min="0" max="14" step="1" value="5">
+                <label>birds</label><input type="range" id="par-birds" min="0" max="20" step="1" value="7">
+                <label>bicycle color</label><input type="range" id="par-hue" min="0" max="360" step="1" value="218">
+              </div>
+            </div>
+            <div class="panel" style="width:480px">
+              <canvas id="seed-canvas" width="960" height="600" style="width:480px;height:300px"></canvas>
+              <div class="seedbar"><button id="seed-prev">‹</button><span>seed <b id="seed-n">1</b></span><button id="seed-next">›</button></div>
+              <span class="cap">a second program, drawn from a seed</span>
+            </div>
+          </div>
+          <ul class="cues across">
+            <li>The agent can turn any value in the program into a control</li>
+            <li>You give the program a seed, a number it uses for every random value</li>
+            <li>With the same seed you get the same picture every time</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="animation" class="k-code">
+        <h2>Animation</h2><span class="kind">Code</span>
+        <div class="body">
+          <div class="vis">
+            <div class="panel"><canvas id="anim-scene" width="1480" height="832" style="width:740px;height:416px"></canvas><span class="cap">one program, redrawn about sixty times a second</span></div>
+          </div>
+          <ul class="cues">
+            <li>The program redraws the scene many times a second, with the time as one of its inputs</li>
+            <li>Wind, the sun's position, and the camera are values in the program</li>
+            <li>The browser draws all of it as you watch, with a library called three.js</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="data" class="k-code">
+        <h2>Drawings from data</h2><span class="kind">Code</span>
+        <div class="body">
+          <div class="vis">
+            <div class="tabs" id="chart-tabs"></div>
+            <div class="panel"><svg id="chart" width="680" height="380" style="background:var(--panel)"></svg>
+            <span class="cap">share of each borough's 311 requests, from the week used in Class 8</span></div>
+          </div>
+          <ul class="cues">
+            <li>The program reads the numbers and sets each bar's length from them</li>
+            <li>Give the same program new data and it draws a new chart</li>
+            <li>Codex drew the charts in your 311 pages from the data</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="work" class="k-code">
+        <h2>Work people make with drawing code</h2><span class="kind">Code</span>
+        <div class="body wide">
+          <div class="tiles">
+            <div class="tile"><canvas id="tile-shader" width="560" height="400"></canvas><h3>Shaders</h3><p>A program computes the color of every pixel on the graphics card, many times a second.</p></div>
+            <div class="tile"><canvas id="tile-terrain" width="560" height="400"></canvas><h3>3D scenes</h3><p>Braffolk had Claude write Laas, a forest you can walk through in the browser. Anthropic has a connector for building scenes in Blender.</p></div>
+            <div class="tile"><canvas id="tile-math" width="560" height="400"></canvas><h3>Explainer video</h3><p>Code draws each frame with Manim or Remotion, and a second tool joins the frames into a video file.</p></div>
+            <div class="tile"><canvas id="tile-flow" width="560" height="400"></canvas><h3>Generative art</h3><p>Anthropic publishes a skill for seeded pieces with sliders, written in p5.js.</p></div>
+          </div>
+          <p class="src">The four tiles are programs running in this page. Laas: github.com/Braffolk/fable5-world-demo. Blender connector: anthropic.com/news/claude-for-creative-work. Video examples: github.com/Li-Evan/awesome-opus-5.5-video-prompts. Skill: github.com/anthropics/skills.</p>
+        </div>
+      </section>
+
+      <section id="checking" class="k-code">
+        <h2>Checking a code drawing</h2><span class="kind">Code</span>
+        <div class="body">
+          <div class="vis">
+            <div class="row">
+              <div class="panel"><canvas id="chk-scene" width="880" height="550" style="width:440px;height:275px"></canvas><span class="cap">a new version every few seconds</span></div>
+              <div class="readout" id="chk-read" style="min-width:240px">&nbsp;</div>
+            </div>
+          </div>
+          <ul class="cues">
+            <li>The agent can count the birds by reading the program</li>
+            <li>It can take a screenshot and look at the result, as in Class 5</li>
+            <li>You open the page and look as well</li>
+            <li>Compare saved versions to see which values changed, as in Class 4</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="limits" class="k-both">
+        <h2>Limits of code drawings</h2>
+        <div class="body">
+          <div class="vis">
+            <div class="row">
+              <div class="panel"><img src="img/blue-1.jpg" width="350" height="272" alt=""><span class="cap"><span class="n">diffusion</span></span></div>
+              <div class="panel"><canvas id="lim-scene" width="700" height="544" style="width:350px;height:272px"></canvas><span class="cap"><span class="c">code</span></span></div>
+            </div>
+          </div>
+          <ul class="cues">
+            <li>Photographs, skin, fur, and weather are work for an image model</li>
+            <li>A language model writes coordinates without seeing the picture</li>
+            <li>An agent that takes screenshots can look and revise</li>
+            <li>Simon Willison asks each new model for an SVG of a pelican riding a bicycle, and the results look like drawings</li>
+          </ul>
+        </div>
+        <p class="src">simonwillison.net/tags/pelican-riding-a-bicycle. Render-in-the-Loop: Vector Graphics Generation via Visual Self-Feedback (2026).</p>
+      </section>
+
+      <section id="families" class="k-both">
+        <h2>Image tools that are not diffusion</h2>
+        <div class="body wide" style="gap:6px">
+          <div class="family">
+            <div><h3>Diffusion</h3><p>Stable Diffusion, DALL·E 3</p></div>
+            <img id="fam-diff" src="img/step-00.jpg" width="200" height="156" alt="">
+            <p>The model refines the whole picture together, from noise.</p>
+          </div>
+          <div class="family">
+            <div><h3>Piece by piece</h3><p>4o image generation in ChatGPT</p></div>
+            <canvas id="fam-ar" width="400" height="312" style="width:200px;height:156px"></canvas>
+            <p>OpenAI describes it as autoregressive. The model produces the picture in sequence, the way a language model produces text. The animation here is an illustration.</p>
+          </div>
+          <div class="family">
+            <div><h3>Not disclosed</h3><p>The image tool in Codex</p></div>
+            <div style="width:200px"></div>
+            <p>OpenAI has not said how gpt-image-2 works. Its output is pixels, like the other two, with no parts to select or count.</p>
+          </div>
+        </div>
+        <p class="src">OpenAI, Addendum to GPT-4o System Card: 4o image generation (2025). The Next Web, OpenAI's new image model reasons before it draws (2026).</p>
+      </section>
+
+      <section id="both" class="k-both">
+        <h2>Using both in one project</h2>
+        <div class="body">
+          <div class="vis">
+            <div class="poster">
+              <img id="poster-img" src="img/blue-1.jpg" alt="">
+              <svg id="poster-birds" viewBox="0 0 700 470"></svg>
+              <div class="ttl">GRADUATE CENTER LIBRARY<small>BICYCLE ROUTES · SPRING</small></div>
+            </div>
+            <span class="cap">photograph from <span class="n">diffusion</span>, lettering and birds from <span class="c">code</span></span>
+          </div>
+          <ul class="cues">
+            <li>Codex can generate a picture and save it in the project folder</li>
+            <li>The page's code places the picture, crops it, and sets exact lettering over it</li>
+            <li>The agent can check the lettering and the layout, and you judge the photograph by eye</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="sources">
+        <h2>Sources</h2>
+        <div class="sources">
+          <p>Ho, Jain, Abbeel. Denoising Diffusion Probabilistic Models. 2020. <a href="https://arxiv.org/abs/2006.11239">arxiv.org/abs/2006.11239</a></p>
+          <p>Rombach, Blattmann, Lorenz, Esser, Ommer. High-Resolution Image Synthesis with Latent Diffusion Models. 2022. <a href="https://arxiv.org/abs/2112.10752">arxiv.org/abs/2112.10752</a></p>
+          <p>Podell et al. SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis. 2023. <a href="https://arxiv.org/abs/2307.01952">arxiv.org/abs/2307.01952</a></p>
+          <p>Wadhwa, Vatsa, Singh, Shah, Galriya. NumBench: Diagnosing Counting Failures in Text-to-Image Models. 2026. <a href="https://arxiv.org/abs/2608.28206">arxiv.org/abs/2608.28206</a></p>
+          <p>Everything in Its Place: Benchmarking Spatial Intelligence of Text-to-Image Models. 2026. <a href="https://arxiv.org/abs/2601.20354">arxiv.org/abs/2601.20354</a></p>
+          <p>OpenAI. Addendum to GPT-4o System Card: 4o image generation. 2025. <a href="https://openai.com/index/gpt-4o-image-generation-system-card-addendum/">openai.com</a></p>
+          <p>The Next Web. OpenAI's new image model reasons before it draws. 2026. <a href="https://thenextweb.com/news/openai-chatgpt-images-2-0-reasoning-image-generation">thenextweb.com</a></p>
+          <p>Simon Willison. Posts tagged pelican-riding-a-bicycle. <a href="https://simonwillison.net/tags/pelican-riding-a-bicycle/">simonwillison.net</a></p>
+          <p>Render-in-the-Loop: Vector Graphics Generation via Visual Self-Feedback. 2026. <a href="https://arxiv.org/abs/2604.20730">arxiv.org/abs/2604.20730</a></p>
+          <p>Braffolk. Laas, a 3D world built by Claude Fable 5 with three.js. <a href="https://github.com/Braffolk/fable5-world-demo">github.com/Braffolk/fable5-world-demo</a></p>
+          <p>Anthropic. Claude for Creative Work. 2026. <a href="https://www.anthropic.com/news/claude-for-creative-work">anthropic.com/news/claude-for-creative-work</a></p>
+          <p>Li-Evan. awesome-opus-5.5-video-prompts. <a href="https://github.com/Li-Evan/awesome-opus-5.5-video-prompts">github.com</a></p>
+          <p>Anthropic. algorithmic-art skill. <a href="https://github.com/anthropics/skills/tree/main/skills/algorithmic-art">github.com/anthropics/skills</a></p>
+          <p>Wu et al. Qwen-Image Technical Report. 2025. <a href="https://arxiv.org/abs/2508.02324">arxiv.org/abs/2508.02324</a></p>
+          <p>Diffusion images in this deck: Qwen-Image, 30 steps, run locally. The 2023 row on the counts slide is Stable Diffusion XL base 1.0. Photograph on the training slide: Newspaper Row, New York, about 1900, public domain, Wikimedia Commons.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="img/data.js?v=9"></script>
+  <script src="scene.js?v=9"></script>
+  <script src="world.js?v=9"></script>
+  <script src="deck.js?v=9"></script>
+</body>
+</html>
