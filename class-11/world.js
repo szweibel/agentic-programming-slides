@@ -466,18 +466,36 @@
       list.push({ name: 'sun', point: camera.position.clone().addScaledVector(state.sunDir, 500), radius: 26, color: '#' + skyU.sunCol.value.getHexString() });
       return list;
     }
+    // The rectangle on screen that a part covers, measured from its own vertices.
+    // `inside` is the share of the part that is within the frame.
+    const inst = new THREE.Matrix4(), full = new THREE.Matrix4();
     function screenRect(part, w, h) {
       scene.updateMatrixWorld(); camera.updateMatrixWorld();
-      if (part.point) box.setFromCenterAndSize(part.point, V(part.radius * 2, part.radius * 2, part.radius * 2)); else box.setFromObject(part.obj);
-      let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
-      for (let i = 0; i < 8; i++) {
-        corner.set(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z).project(camera);
-        if (corner.z > 1) return null;
-        const sx = (corner.x * 0.5 + 0.5) * w, sy = (0.5 - corner.y * 0.5) * h; x0 = Math.min(x0, sx); y0 = Math.min(y0, sy); x1 = Math.max(x1, sx); y1 = Math.max(y1, sy);
+      let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, total = 0, inside = 0;
+      const near = -camera.near;
+      const see = () => {
+        total++; corner.applyMatrix4(camera.matrixWorldInverse); if (corner.z > near) return;
+        corner.applyMatrix4(camera.projectionMatrix);
+        const sx = (corner.x * 0.5 + 0.5) * w, sy = (0.5 - corner.y * 0.5) * h; if (sx < 0 || sy < 0 || sx > w || sy > h) return;
+        inside++; x0 = Math.min(x0, sx); y0 = Math.min(y0, sy); x1 = Math.max(x1, sx); y1 = Math.max(y1, sy);
+      };
+      if (part.point) {
+        box.setFromCenterAndSize(part.point, V(part.radius * 2, part.radius * 2, part.radius * 2));
+        for (let i = 0; i < 8; i++) { corner.set(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z); see(); }
+      } else {
+        box.setFromObject(part.obj);
+        part.obj.traverse(m => {
+          if (!m.isMesh) return;
+          const pa = m.geometry.attributes.position, step = Math.max(1, Math.floor(pa.count / 700)), copies = m.isInstancedMesh ? m.count : 1;
+          for (let k = 0; k < copies; k++) {
+            if (m.isInstancedMesh) { m.getMatrixAt(k, inst); full.multiplyMatrices(m.matrixWorld, inst); } else full.copy(m.matrixWorld);
+            for (let i = 0; i < pa.count; i += step) { corner.fromBufferAttribute(pa, i).applyMatrix4(full); see(); }
+          }
+        });
       }
-      if (x1 < 0 || y1 < 0 || x0 > w || y0 > h) return null;
+      if (!inside) return null;
       const c = box.getCenter(new THREE.Vector3());
-      return { x: x0, y: y0, w: x1 - x0, h: y1 - y0, pos: [c.x, c.y, c.z] };
+      return { x: x0, y: y0, w: x1 - x0, h: y1 - y0, pos: [c.x, c.y, c.z], inside: inside / total };
     }
     function counts() { return { trees: trees.filter(t => t.visible).length, birds: birds.filter(b => b.visible).length, bicycle: '#' + paint.color.getHexString() }; }
 

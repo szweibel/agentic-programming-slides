@@ -206,14 +206,14 @@
   // ---------- parts
   VIS.parts = () => {
     const cv = $('#parts-scene'), ctx = cv.getContext('2d'), read = $('#parts-read');
-    const order = ['bicycle', 'front wheel', 'basket', 'sun', 'tree 1', 'bird 3', 'saddle', 'tree 4', 'rear wheel', 'bird 6', 'tree 2'];
+    const order = ['bicycle', 'front wheel', 'basket', 'tree 5', 'bird 3', 'saddle', 'tree 3', 'rear wheel', 'bird 6'];
     let n = -1, since = -9, last = '';
     return raf(t => {
       W().render(cv, { tod: 0.78, t: 4 + t, az: 0.5, el: 0.2, dist: 8, trees: 5, birds: 7 });
       if (t - since > 1.7) { since = t; n++; }
       const list = W().partList(), part = list.find(p => p.name === order[n % order.length]);
       const r = part && W().screenRect(part, cv.width, cv.height);
-      if (!r) { since = -9; return; }
+      if (!r || r.inside < 0.6) { since = -9; return; } // skip parts that are mostly outside the frame
       const pad = 10, x = Math.max(3, r.x - pad), y = Math.max(3, r.y - pad), w = Math.min(cv.width - 3 - x, r.w + 2 * pad), h = Math.min(cv.height - 3 - y, r.h + 2 * pad);
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.setLineDash([14, 9]); ctx.strokeRect(x, y, w, h); ctx.setLineDash([]);
       let html = '<b>' + (part.parent ? part.parent + ' › ' : '') + part.name + '</b><br><span class="dim">position</span> ' + r.pos.map(v => v.toFixed(1)).join(', ') + '<br>';
